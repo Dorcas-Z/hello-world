@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="../images/10.gif" alt="">
+<button id="out">渐出</button>
+<button id="in">渐入</button>
+<script>
+    var img=document.getElementsByTagName('img')[0];
+    var out=document.getElementById('out');
+    var btn2=document.getElementById('in');
+    img.style.opacity=1;
+    var a=0.01;
+    var hide;
+    out.onclick=fn1;
+    btn2.onclick=fn2;
+    hide=setInterval(function(){
+        if(a>0&&img.style.opacity>0){
+            img.style.opacity-=a;
+        }
+        if(a<0&&img.style.opacity<1){
+            img.style.opacity-=a;
+        }
+
+    },50)
+    function fn1(){
+        a=Math.abs(a);
+    }
+    function fn2(){
+        if(a>0){
+            a=-a;
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<select id="pre" onchange="changePre(this.value)"><!--当元素发生改变时执行方法传入value-->
+    <option value="-1">-请选择-</option>
+</select>
+<select id="city">
+    <option value="-1">-请选择-</option>
+</select>
+<script>
+    var pres=['黑龙江省','吉林省','辽宁省'];
+    var citys=[
+        ['哈尔滨','牡丹江','佳木斯'],
+        ['吉林市','长春市','四平'],
+        ['沈阳市','大连市','朝阳市']
+    ];
+    function $(id){
+        return document.getElementById(id);/*通过id获取元素*/
+    }
+    var pre=$('pre');/*获取省级地区的select*/
+    var city=$('city');/*获取市级地区的select*/
+    window.onload=function(){
+       createOption(pres,pre)/*调用封装的方法为省级地区的select添加option*/
+    }
+    function changePre(num){/*接收传过来的省级地区对应的下标*/
+        var arr=citys[num];/*通过下边获取对应的市级地区二维数组中的子数组*/
+        while(city.children.length>1){/*移除原来的option*/
+            city.removeChild(city.lastElementChild)/*从后往前删*/
+        }
+       createOption(arr,city);/*调用封装的方法为市级地区的select添加option*/
+    }
+    function createOption(arr,ele){/*arr：数据 ele：元素*/
+        /*遍历数组创建对应的option添加到对应的ele*/
+        for(var i=0;i<arr.length;i++){
+            var option=document.createElement('option');/*创建option*/
+            option.innerHTML=arr[i];/*为option添加内容*/
+            option.value=i;/*为option添加value属性  属性值对应下标*/
+            ele.appendChild(option);/*把option添加到ele元素中*/
+        }
+    }
+</script>
+</body>
+</html>

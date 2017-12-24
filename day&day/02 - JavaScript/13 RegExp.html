@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>validate form</title>
+</head>
+<body>
+<!--<form action="/test.html" id="my_form" onsubmit="return validate()">
+    <input type="submit">
+</form>-->
+<form action="/test.html" id="my_form">
+    <p><label for="userName">用户名</label><input type="text" id="userName"></p>
+    <p><label for="nickName">昵称</label><input type="text" id="nickName"></p>
+    <p><label for="pwd">密码</label><input type="text" id="pwd"></p>
+    <input type="submit">
+</form>
+<script>
+    /*function validate(){
+        if(/!*通过*!/){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+*/
+    var my_form=document.getElementById('my_form');
+    my_form.addEventListener('submit',function(e){
+        var validated=true;
+
+        var userName=document.getElementById('userName');
+        var username_reg=/^[\w\-]{8,12}$/;
+        if(validated){validated=username_reg.test(userName.value)};
+
+        var nickName=document.getElementById('nickName');
+        var nickname_reg=/^[\u4e00-\u9fa5]{4,8}$/;
+        if(validated){validated=nickname_reg.test(nickName.value)};
+
+        var pwd=document.getElementById('pwd');
+        var pwd_reg1=/\d+/;
+        var pwd_reg2=/[A-Za-z]+/;
+        var pwd_reg3=/[\W]+/;
+        var contained=[];
+        if(pwd_reg1.test(pwd.value)){contained.push('number')};
+        if(pwd_reg2.test(pwd.value)){contained.push('charecter')};
+        if(pwd_reg3.test(pwd.value)){contained.push('symbol')};
+        if(validated){
+            if(!(contained.length>=2&&pwd.value.length>=8 && pwd.value.length<=16)){
+                validated=false;
+            }
+        }
+
+
+        if(!validated){
+            e.preventDefault();
+        }
+
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #image{
+            width:80px;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+<img src="img/img.jpg" alt="" id="image">
+
+<script>
+    var image=document.getElementById('image');
+    document.onclick=function(event){
+        var event=event ||window.event;
+        image.style.left=event.clientX-image.offsetWidth/2+'px';
+        image.style.top=event.clientY-image.offsetHeight/2+'px';
+    }
+</script>
+
+</body>
+</html>

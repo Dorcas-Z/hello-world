@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="a in del">{{a.age}}</li>
+    </ul>
+    <world></world>
+</div>
+
+
+<script src="js/vue.js"></script>
+<script>
+    var obj={
+        ename:'Tom',
+        del:[
+            {age:'10',class:'web109'},
+            {age:'20',class:'web110'}
+        ],
+        val:function(){
+            return 100;
+        }
+    }
+    var a={
+        template:'<h1 style="color:red">hello world!'+obj.ename+'</h1>',
+        data:function(){
+                return {val:2}
+            }
+
+    }
+    new Vue({
+        el:'#app',
+        data:obj,
+        components:{
+            'world':a
+        }
+    })
+
+</script>
+
+</body>
+</html>

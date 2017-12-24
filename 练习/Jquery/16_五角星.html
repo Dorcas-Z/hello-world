@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .star{
+            list-style: none;
+            font-size: 40px;
+            color:red;
+        }
+        .star li{
+            float:left;
+        }
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function(){
+//            第一步：移动到那个五角星上显示实心
+            var wjx_text='★', wjx_none='☆';
+            $('.star').on('mouseenter','li',function(){
+                $(this).text(wjx_text).prevAll().text(wjx_text).end().nextAll().text(wjx_none);
+            }).on('click','li',function(){
+                $(this).addClass('clicked').siblings().removeClass('clicked');
+            }).on('mouseleave',function(){
+                $('.star').children().text(wjx_none);
+                $('.clicked').text(wjx_text).prevAll().text(wjx_text).end().nextAll().text(wjx_none);
+            })
+        })
+    </script>
+</head>
+<body>
+<ul class="star">
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+</ul>
+
+</body>
+</html>

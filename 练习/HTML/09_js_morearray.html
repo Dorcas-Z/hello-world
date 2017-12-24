@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    /*key放在一个数组里，value放在一个数组里*/
+    var url='http://www.baidu.com?ename="杨冉"&age=90&class=web109';
+    var ur2=url.slice(url.indexOf('?')+1);
+    console.log(ur2);
+    var ur3=ur2.split('&');
+    console.log(ur3);
+    var ur4=[];
+    for(i=0;i<ur3.length;i++){
+       /* ur4[i]=ur3[i].slice(0,ur3[i].indexOf('='));*/
+        ur4.push(ur3[i].slice(0,ur3[i].indexOf('=')));
+    }
+    console.log(ur4);
+    var ur5=[];
+    for(i=0;i<ur3.length;i++){
+        ur5[i]=ur3[i].slice(ur3[i].indexOf('=')+1);
+    }
+    console.log(ur5);
+    /*字符串unicode转码*/
+    var str='今天下雨了';
+    var s='';
+    for(var i=0;i<str.length;i++){
+        s+=str.charCodeAt(i);
+    }
+    console.log(s);
+    var un='';
+    for(var i=0;i<s.length;i+=5){
+        var num=Number(s.slice(i,i+5));
+        un+=String.fromCharCode(num);
+    }
+    console.log(un);
+
+    /*二维数组-遍历*/
+    var arr=[
+        [1,2,3,4,5],
+        [11,22,33,44,55],
+        [111,222,333,444,555],
+        [10,9,8,7,6,5]
+    ]
+    /*for(var i=0;i<arr.length;i++){
+        for(var j=0;j<arr[i].length;j++){
+            console.log(arr[i][j]);
+        }
+    }*/
+   for(var i=0;i<arr.length;i++){
+       console.log(arr[i]);
+   }
+
+
+</script>
+</body>
+</html>

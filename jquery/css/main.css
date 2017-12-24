@@ -1,0 +1,335 @@
+/*
+1.样式都通过ID去限定
+2.尽可能使用直接子代选择器
+*/
+/*注册新按钮的样式  blog.koalite.com/bbg！！！！！*/
+.btn-register {
+    color: #ffffff;
+    background-color: #E9232C;
+    border-color: #DB3B43;
+}
+
+.btn-register:hover,
+.btn-register:focus,
+.btn-register:active,
+.btn-register.active,
+.open .dropdown-toggle.btn-register {
+    color: #ffffff;
+    background-color: #E9232C;
+    border-color: #DB3B43;
+}
+
+.btn-register:active,
+.btn-register.active,
+.open .dropdown-toggle.btn-register {
+    background-image: none;
+}
+
+.btn-register.disabled,
+.btn-register[disabled],
+fieldset[disabled] .btn-register,
+.btn-register.disabled:hover,
+.btn-register[disabled]:hover,
+fieldset[disabled] .btn-register:hover,
+.btn-register.disabled:focus,
+.btn-register[disabled]:focus,
+fieldset[disabled] .btn-register:focus,
+.btn-register.disabled:active,
+.btn-register[disabled]:active,
+fieldset[disabled] .btn-register:active,
+.btn-register.disabled.active,
+.btn-register[disabled].active,
+fieldset[disabled] .btn-register.active {
+    background-color: #E9232C;
+    border-color: #DB3B43;
+}
+
+.btn-register .badge {
+    color: #E9232C;
+    background-color: #ffffff;
+}
+
+.navbar-self {
+    background-color: #fff;
+    border-color: #f5f5f5;
+    margin-bottom:  0px;
+}
+.navbar-self .navbar-brand {
+    color: #777;
+    height: 80px;
+}
+.navbar-self .navbar-brand:hover,
+.navbar-self .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+}
+.navbar-self .navbar-text {
+    color: #777;
+}
+.navbar-self .navbar-nav > li > a {
+    color: #777;
+    line-height: 48px;
+}
+.navbar-self .navbar-nav > li > a:hover,
+.navbar-self .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: transparent;
+    border-bottom: 2px solid #e92322;
+}
+.navbar-self .navbar-nav > .active > a,
+.navbar-self .navbar-nav > .active > a:hover,
+.navbar-self .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: transparent;
+    border-bottom: 2px solid #e92322;
+}
+.navbar-self .navbar-nav > .disabled > a,
+.navbar-self .navbar-nav > .disabled > a:hover,
+.navbar-self .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+}
+.navbar-self .navbar-toggle {
+    border-color: #ddd;
+    margin-top: 23px;
+}
+.navbar-self .navbar-toggle:hover,
+.navbar-self .navbar-toggle:focus {
+    background-color: #ddd;
+}
+.navbar-self .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+.navbar-self .navbar-collapse,
+.navbar-self .navbar-form {
+    border-color: #e7e7e7;
+}
+.navbar-self .navbar-nav > .open > a,
+.navbar-self .navbar-nav > .open > a:hover,
+.navbar-self .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+@media (max-width: 767px) {
+    .navbar-self .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+    .navbar-self .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-self .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: transparent;
+    }
+    .navbar-self .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-self .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-self .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #555;
+        background-color: #e7e7e7;
+    }
+    .navbar-self .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-self .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-self .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #ccc;
+        background-color: transparent;
+    }
+}
+.navbar-self .navbar-link {
+    color: #777;
+}
+.navbar-self .navbar-link:hover {
+    color: #333;
+}
+.navbar-self .btn-link {
+    color: #777;
+}
+.navbar-self .btn-link:hover,
+.navbar-self .btn-link:focus {
+    color: #333;
+}
+.navbar-self .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-self .btn-link:hover,
+.navbar-self .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-self .btn-link:focus {
+    color: #ccc;
+}
+/*注册新按钮*/
+/*公共样式*/
+body{
+    font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+/*字体图标设计！！！！！https://icomoon.io/*/
+@font-face {
+    font-family: 'weiwei';
+    src: url('../font/MiFie-Web-Font.eot') format('embedded-opentype'),
+    url('../font/MiFie-Web-Font.svg') format('svg'),
+    url('../font/MiFie-Web-Font.ttf') format('truetype'),
+    url('../font/MiFie-Web-Font.woff') format('woff');
+}
+/*！！！！！*/
+[class^='icon-'],[class*=' icon-']{
+    font-family: weiwei;
+    font-style:normal;
+}
+.icon-mobilephone::before {
+    content: "\e908";
+    font-size: 13px;
+}
+.icon-telephone::before {
+    content: "\e909";
+    font-size: 15px;
+}
+.icon-icon::before {
+    content: "\e920";
+}
+.icon-logo::before {
+    content: "\e93e";
+}
+.icon-uniE907:before {
+    content: "\e907";
+}
+.icon-uniE903:before {
+    content: "\e903";
+}
+.icon-uniE901:before {
+    content: "\e901";
+}
+.icon-uniE900:before {
+    content: "\e900";
+}
+.icon-uniE904:before {
+    content: "\e904";
+}
+.icon-uniE902:before {
+    content: "\e902";
+}
+.icon-uniE906:before {
+    content: "\e906";
+}
+.icon-uniE905:before {
+    content: "\e905";
+}
+/*头部区域*/
+/*#header{
+    height:200px;
+    background-color: #f0f0f0;
+}*/
+#header > .topbar{
+    height:40px;
+    line-height: 40px;
+    border-bottom: 1px solid #c0c0c0;
+}
+#header > .topbar > .container > .row > div{
+    height:40px;
+    font-size: 12px;
+    color:#888;
+}
+#header > .topbar > .container > .row > div+div{
+    border-left:1px solid #c0c0c0;
+}
+#header .mobile-link,#header .link{
+    font-size: 12px;
+    /*去除bootstrap默认的字体颜色*/
+    color:#888;
+}
+#header .mobile-link img{
+    display:none;
+}
+#header .mobile-link:hover{
+    text-decoration: none;
+}
+#header .mobile-link:hover img{
+    display:block;
+    /*图片水平居中*/
+    position:absolute;
+    left:50%;
+    margin-left:-60px;
+    top:30px;
+    z-index:1001;
+}
+#header .icon-icon{
+    font-size: 50px;
+    color: #e9232c;
+    line-height: 50px;
+    vertical-align: middle;
+}
+#header .icon-logo{
+    font-size: 32px;
+    color: #333;
+    line-height: 50px;
+    vertical-align: middle;
+}
+/*头部区域*/
+/*测试样式区域*/
+    /*section{*/
+        /*height:200px;*/
+        /*background-color: #fff;*/
+    /*}*/
+    /*section:nth-of-type(2n){*/
+        /*background-color:#f5f5f5;*/
+
+    /*}*/
+/*轮播图区域*/
+#main-sl .carousel-inner .item{
+    background-position: center center;
+    -webkit-background-size:;
+    background-size:cover;
+
+}
+#main-sl .carousel-inner .item img{
+    width:100%;
+}
+    /*什么时候切换成小图，采用多媒体查询来实现*/
+@media (min-width: 768px) {
+    #main-sl .carousel-inner .item{
+
+height: 410px;
+}
+}
+
+/*轮播图区域*/
+/*特色区域*/
+#special{
+    padding:50px 0;
+    border-bottom: 1px solid #c0c0c0;
+}
+#special > .container > .row i{
+    font-size: 32px;
+}
+#special > .container > .row > a > div{
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+#special a:hover {
+    color: #E9232C;
+}
+#special a {
+    color: #333;
+}
+
+/*特色区域*/
+/*立即预约区域*/
+#book{
+    padding:10px 0;
+    border-bottom: 1px solid #c0c0c0;
+}
+#book > .container > p{
+    margin-bottom: 0px;
+}
+#book > .container > p > span{
+    color:#e9232c;
+}
+#book > .container > .pull-left > a{
+    color: #e9232c;
+    border-bottom: 1px dashed #e9232c;
+}
+#book > .container > p > a:hover{
+    text-decoration: none;
+}
+#book > .container > .pull-right > a{
+    color:#333;
+
+}
+/*立即预约区域*/
+
+/*脚注区域*/
+
+/*脚注区域*/

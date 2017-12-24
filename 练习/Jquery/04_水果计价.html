@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h4>苹果</h4>
+    <p>单价: <input type="text">数量: <input type="text">小计: <span>0</span></p>
+    <h4>西瓜</h4>
+    <p>单价: <input type="text">数量: <input type="text">小计: <span>0</span></p>
+    <h4>橙子</h4>
+    <p>单价: <input type="text">数量: <input type="text">小计: <span>0</span></p>
+    <h4>哈密瓜</h4>
+    <p>单价: <input type="text">数量: <input type="text">小计: <span>0</span></p>
+    <h1>总计： <span>0</span></h1>
+</div>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+    $('input').keyup(function(){
+        var xiaoji=$(this).val()*$(this).siblings('input').val();
+        $(this).siblings('span').html(xiaoji);
+        var num=0;
+        $('p span').each(function(){
+            num+=Number($(this).html());
+            $('h1 span').html(num);
+        })
+    })
+</script>
+</body>
+</html>

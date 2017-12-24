@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+        }
+        img{
+            width:300px;
+            height:200px;
+        }
+        #box{
+            width:1200px;
+            height:200px;
+            margin:20px auto;
+            position:relative;
+            overflow:hidden;
+        }
+        ul{
+            position:absolute;
+        }
+        li{
+            float:left;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="../images/03.jpg" alt=""></li>
+        <li><img src="../images/05.jpg" alt=""></li>
+        <li><img src="../images/06.jpg" alt=""></li>
+        <li><img src="../images/07.jpg" alt=""></li>
+    </ul>
+</div>
+<div>
+    <button id="btnl">左</button>
+    <button id="btnr">右</button>
+</div>
+<script>
+
+    var div=document.getElementById('box');
+    var ul=document.getElementsByTagName('ul')[0];
+    var li=document.getElementsByTagName('li');
+    var btnl=document.getElementById('btnl');
+    var btnr=document.getElementById('btnr');
+    ul.innerHTML+=ul.innerHTML;
+    ul.style.width=li[0].offsetWidth*li.length+'px';
+    var speed=5;
+    timg=setInterval(fn1,20);
+    var onetimg;
+    function fn1(){
+        ul.style.left=ul.offsetLeft-speed+'px';
+        if(ul.offsetLeft<-ul.offsetWidth/2){
+            ul.style.left='0px';
+        }
+        if(ul.offsetLeft>0){
+            ul.style.left=-ul.offsetWidth/2+'px';
+        }
+        if(ul.offsetLeft%li[0].offsetWidth==0){
+            clearInterval(timg);
+            onetimg=setTimeout(function(){
+                timg=setInterval(fn1,20);
+            },2000)
+        }
+    }
+    div.onmouseover=function(){
+        clearInterval(timg)
+    }
+    div.onmouseout=function(){
+        timg=setInterval(fn1,20);
+    }
+    btnl.onclick=fn2;
+    function fn2(){
+        speed=Math.abs(speed);
+    }
+    btnr.onclick=fn3;
+    function fn3(){
+        if(speed>0){
+            speed=-speed;
+        }
+    }
+</script>
+</body>
+</html>

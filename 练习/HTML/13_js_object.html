@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function a(){
+        b.apply(a,arguments);
+    }
+    a(1,2,3,4);
+    function b(){
+        console.log(arguments);
+    }
+   /* var obj={key:1104};
+    var b={key:111};
+    console.log(b.toString());
+    console.log(obj.toString());
+*/
+
+    /*var obj={
+        ename:'Dance',
+        age:20,
+        fun:function(n1,n2){
+            this.n1=n1;
+            this.n2=n2;
+        },
+        sum:function(){
+            console.log(this.n1+this.n2);
+        }
+    }
+    obj.fun(1,2);
+    console.log(obj.n1);
+    obj.sum();
+
+
+    function a(){
+        this.job='老师';
+    }
+    function b(){
+        this.name="Dorcas";
+
+    }
+    a.prototype=new b();
+    var obj1=new a();
+    console.log(obj1.job);
+    console.log(obj1.name);
+
+    var a={age:90};
+    var b={hobby:'篮球'};
+    var c={music:'我的主打歌'};
+    Object.setPrototypeOf(b,a);
+    Object.setPrototypeOf(c,b);
+
+    console.log(c.music);
+    console.log(c.age);
+    console.log(c.hobby);*/
+    /*var obj={
+      "name":'Dorcas',
+        "age":29,
+        "class":'web109',
+        "score":100
+    };
+    console.log(obj);
+    console.log(obj.name);
+    console.log(obj.age);
+    console.log(obj.class);
+    console.log(obj.score);
+    for(var i in obj){
+        console.log(i);
+    }
+    var a={};
+
+    b={};
+    c={};
+    d={};
+    e="123";
+    a[b]=111;
+    a[c]=222;
+    a[d]=333;
+    a[e]=444;
+    console.log(a.toString());
+    console.log(b.toString());
+    console.log(a[b]);
+    console.log(a[c]);
+    console.log(a[d]);
+    console.log(a[e]);
+    var arr=[1,2,3];
+    console.log(arr.toString());*/
+</script>
+</body>
+</html>

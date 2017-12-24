@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+            text-decoration: none;
+        }
+        ul{
+           text-align: center;
+            width:900px;
+            height:30px;
+            line-height:30px;
+            margin:0 auto;
+            position:relative;
+        }
+        li{
+            float:left;
+            width:300px;
+            background:papayawhip;
+        }
+        dl{
+            width:300px;
+            background:darkred;
+            color:white;
+            position:absolute;
+            display:none;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <a href="#">新闻</a>
+        <dl>
+            <dd>腾讯新闻</dd>
+            <dd>百度新闻</dd>
+            <dd>新浪新闻</dd>
+        </dl>
+    </li>
+    <li>
+        <a href="#">产品</a>
+        <dl>
+            <dd>服饰</dd>
+            <dd>艺术娱乐</dd>
+            <dd>婴孩用品</dd>
+        </dl>
+    </li>
+    <li>
+        <a href="#">服务</a>
+        <dl>
+            <dd>售前</dd>
+            <dd>售后服务</dd>
+            <dd>哈哈</dd>
+        </dl>
+    </li>
+</ul>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+    $('li').click(function(){
+        $('dl').removeClass('box1');
+        var num=$(this).index();
+        $('dl:eq('+num+')').show();
+        $('dl:eq('+num+')').attr('class','box1');
+        $('dl:not(.box1)').hide();
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+<title>变量的作用域</title>
+</head>
+
+<body>
+输入一个数值：<input id="number" type="text" />
+<input name="btn" type="button" value="调用函数" onclick="second()" />
+<script type="text/javascript">
+var i=20;
+function first(){
+    var i=5;
+        document.write("<br/>函数first中的i值为："+i);
+}
+function second(){
+   var t=document.getElementById("number").value;
+   if(t>i){
+      document.write("函数second中的t值为："+t);
+   }
+   else{
+     document.write("全局变量中的i值为："+i);
+
+   }
+    //函数中也可以调用函数
+    first();
+}
+
+</script>
+</body>
+</html>

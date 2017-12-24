@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+        }
+        #box li{
+            float:left;
+            width:100px;
+            text-align:center;
+        }
+        .hide{
+            display:none;
+        }
+        .show{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+<ul id="box">
+    <li>
+        <a href="javascript:void (0)">新闻</a>
+        <dl class="hide">
+            <dd>国际新闻</dd>
+            <dd>国际新闻</dd>
+            <dd>国际新闻</dd>
+            <dd>国际新闻</dd>
+        </dl>
+    </li>
+    <li>
+        <a href="javascript:void (0)">新闻</a>
+        <dl class="hide">
+            <dd>国际新闻</dd>
+            <dd>国际新闻</dd>
+            <dd>国际新闻</dd>
+            <dd>国际新闻</dd>
+        </dl>
+    </li>
+    <li>
+        <a href="javascript:void (0)">新闻</a>
+        <dl class="hide">
+            <dd>国际新闻</dd>
+            <dd>国际新闻</dd>
+            <dd>国际新闻</dd>
+            <dd>国际新闻</dd>
+        </dl>
+    </li>
+</ul>
+<script>
+var ul=document.getElementById('box');
+var li=ul.getElementsByTagName('li');
+for(var i=0;i<li.length;i++){
+    li[i].setAttribute('onmouseover','fn1(this,true)');
+    li[i].setAttribute('onmouseout','fn1(this,false)');
+}
+function fn1(li,aduge){
+    if(aduge){
+        li.children[1].setAttribute('class','show');
+    }else{
+        li.children[1].setAttribute('class','hide');
+    }
+
+}
+</script>
+</body>
+</html>

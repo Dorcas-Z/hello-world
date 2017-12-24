@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bg{
+            background:mediumvioletred;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var tab=document.createElement('table');
+    tab.border=1;
+    tab.width=400;
+    document.body.appendChild(tab);
+    var trHeader=document.createElement('tr');
+    trHeader.innerHTML='<th>名字</th><th>年龄</th><th>班级</th><th>操作</th>';
+    tab.appendChild(trHeader);
+    var arr=[
+        {ename:'小红',age:20,class:'web107'},
+        {ename:'小绿',age:21,class:'web108'},
+        {ename:'小蓝',age:22,class:'web109'},
+        {ename:'小紫',age:23,class:'web110'},
+        {ename:'小白',age:24,class:'web111'},
+        {ename:'小黄',age:25,class:'web112'},
+    ];
+    var i,j;
+    for(i=0;i<arr.length;i++){
+        var tr=document.createElement('tr');
+        tr.onmouseover=fn1;
+        tr.onmouseout=fn2;
+        if(i%2==0){
+            tr.setAttribute('class','bg');
+        }
+        for(j in arr[i]){
+            var td=document.createElement('td');
+            td.innerHTML=arr[i][j];
+            tr.appendChild(td);
+        }
+        var td=document.createElement('td');
+        td.innerHTML='<button onclick="deltr(this)">删除</button>';
+        tr.appendChild(td);
+        tab.appendChild(tr);
+    }
+    function deltr(ele){
+        tab.removeChild(ele.parentNode.parentNode);
+    }
+    function fn1(){
+        this.setAttribute('style','background:yellow');
+    }
+    function fn2(){
+        this.removeAttribute('style');
+    }
+</script>
+</body>
+</html>

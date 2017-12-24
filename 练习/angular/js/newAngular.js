@@ -1,0 +1,23 @@
+/**
+ * Created by Administrator on 2017/4/20.
+ */
+angular.module('m',[]).controller('HelloAngular',function($scope){
+    $scope.greating={
+        text:'asd',
+        age:20,
+        arr:['姓名','年龄','班级']
+    }
+    $scope.controFn=function(button){
+        $scope.greating.age=$scope.greating.age+1
+        console.log($scope.greating.age);
+    }
+}).controller('tab',function($scope){
+    $scope.greating={
+        tabArr:[
+            {ename:'小明',age:20,class:'web107'},
+            {ename:'小红',age:20,class:'web107'},
+            {ename:'小李',age:20,class:'web107'},
+            {ename:'小贾',age:20,class:'web107'}
+        ]
+    }
+})

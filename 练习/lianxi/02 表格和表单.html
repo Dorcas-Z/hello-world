@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <fieldset><!--域-->
+        <legend>个人简介</legend><!--域标题-->
+
+    <input type="hidden" value="register"><!--给服务器偷偷传数据，比如区分注册表单还是登录表单-->
+    <p>用户名： <input type="text" value="请输入用户名"></p>
+    <p>密码： <input type="password"></p>
+    <p>性别：
+        <input type="radio" name="sex" checked="checked" id="man"><label for="man">男</label><!--label标注-->
+        <input type="radio" name="sex" id="woman"><label for="woman">女</label></p>
+    <p>爱好：
+        <input type="checkbox" name="aihao" value="1" checked="checked">吃
+        <input type="checkbox" name="aihao" value="2">睡
+        <input type="checkbox" name="aihao" value="3">看书
+        <input type="checkbox" name="aihao" value="4">看电影
+    </p>
+    <p>上传简历： <input type="file" name="file"></p>
+    <p>
+        所在城市：
+        <select name="citys" id="citys" size="1"><!--size:行数-->
+            <option value="bj">北京</option>
+            <option value="sh">上海</option>
+            <option value="gz">广州</option>
+        </select>
+    </p>
+    <p>个人简介：
+        <textarea name="jianjie" id="" cols="30" rows="10"></textarea>
+    </p>
+    <p><input type="submit" value="登录" disabled="disabled"><input type="reset"></p>
+    <p><input type="image" src="image/hetao.jpg"></p>
+    <p><input type="button" value="这是个button"></p>
+    </fieldset>
+</form>
+<table border="1">
+    <tr>
+        <td colspan="3">三年级五班学员的语文成绩和数学成绩</td>
+    </tr>
+    <tr>
+        <td rowspan="2">白杨</td>
+        <td>语文</td>
+        <td>98</td>
+    </tr>
+    <tr>
+        <td>数学</td>
+        <td>96</td>
+    </tr>
+    <tr>
+        <td rowspan="2">杨晨</td>
+        <td>语文</td>
+        <td>92</td>
+    </tr>
+    <tr>
+        <td>数学</td>
+        <td>100</td>
+    </tr>
+</table>
+<table border="1">
+    <tr>
+        <td>第一个单元格</td>
+        <td>第二个单元格</td>
+    </tr>
+    <tr>
+        <td>第3个单元格</td>
+        <td>第4个单元格</td>
+    </tr>
+</table>
+</body>
+</html>

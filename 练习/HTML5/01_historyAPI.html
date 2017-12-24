@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            height:100%;
+            margin:0;
+            padding:0;
+        }
+        aside{
+            width:200px;
+            height:100%;
+            background-color: #B1191A;
+            float: left;
+        }
+        aside ul,p{
+            margin:0;
+        }
+        aside ul li{
+            cursor: pointer;
+        }
+        article{
+            background-color: #2e6da4;
+            height:100%;
+            margin-left: 200px;
+            overflow: scroll;
+        }
+
+    </style>
+</head>
+<body>
+    <aside>
+        <ul id="list"></ul>
+    </aside>
+    <article>
+        <p id="content"></p>
+    </article>
+
+<script src="data.js"></script>
+    <script>
+        var listElement=document.querySelector('#list');
+//        遍历添加歌曲名字清单
+        for(var title in data){
+            var liElement=document.createElement('li');
+            liElement.innerHTML=title;
+            liElement.setAttribute('data-title',title);
+            listElement.appendChild(liElement);
+        }
+        var liElements=document.querySelectorAll('#list>li');
+        var content=document.querySelector('#content');
+//        给歌曲添加点击事件
+        for(var i=0;i<liElements.length;i++){
+            liElements[i].addEventListener('click',function(){
+                content.innerHTML=data[this.dataset.title];
+                if(window.history && history.pushState){
+                    history.pushState(this.dataset.title,'title useless','?t='+this.dataset.title);
+                }
+            })
+        }
+//        在历史状态中前进后退中会触发一个事件popstate
+        window.addEventListener('popstate',function(e){
+            content.innerHTML=data[e.state];
+        })
+//        第一次请求过来  获取地址栏的t参数
+        var title=window.location.search.split('=')[1];
+        if(title){
+            content.innerHTML=data[decodeURI(title)];
+        }
+
+    </script>
+</body>
+</html>

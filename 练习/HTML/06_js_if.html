@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button onclick="atm()">取款机</button>
+    <button onclick="market()">超市</button>
+    <button onclick="miyu()">猜谜语</button>
+    <script>
+        var score=0;
+        function miyu(){
+            var result=window.prompt('请输入你的答案结果，正确输入true，错误输入false');
+            var a='true';
+            var b='false';
+            if(result==a){
+                window.alert('您目前的得分是'+(score+=1));
+                console.log('您的答案正确');
+                console.log('您目前的得分是'+(score));
+            }else if(result==b){
+                window.alert('您目前的得分是'+(score-=1));
+                console.log('您的答案错误');
+                console.log('您目前的得分是'+(score));
+            }else{
+                window.alert('您的输入有问题，请重新输入');
+            }
+        }
+        /*function market(){
+           var price=10;
+           var buy=parseFloat(window.prompt('请输入买几斤西瓜'));
+           var cost=price*buy;
+
+           if(isNaN(buy)){
+               window.alert('请输入正确的数值');
+           }else if(cost<100){
+               window.alert('应付款：'+cost)
+
+
+               var payment=parseFloat(window.prompt('请输入客户金额'));
+               console.log('应付款：'+cost);
+               console.log('实收款：'+payment);
+               console.log('找零：'+(payment-cost));
+           }else{
+               window.alert('应付款：'+cost*0.7)
+               var payment=parseFloat(window.prompt('请输入客户金额'));
+               console.log('应付款：'+cost*0.7+'（打7折）')
+               console.log('实收款：'+payment);
+               console.log('找零：'+(payment-cost*0.7));
+           }
+
+        }*/
+        /*function atm(){
+            var count=10000;
+            var user1=window.prompt('请输入需求');
+            var request1="查询账户余额";
+            var request2="取款";
+            var request3="余额";
+            if(user1==request1){
+                window.alert('账户余额为'+count);
+            }else if(user1==request2) {
+                var user2 = parseInt(window.prompt('请输入取款金额'));
+                {if (user2 > count) {
+                    window.alert('账户余额不足，请重新输入');
+                } else {
+                    window.alert('取款成功');
+                    console.log('账户余额'+(count-=user2));
+                }}
+            }else if(user1==request3){
+                var user3 = parseInt(window.prompt('请输入已取款金额'));
+                window.alert('账户余额是' + (count-=user3));
+            }else{
+                window.alert('无此业务');
+            }
+            document.write('谢谢');
+        }*/
+
+    </script>
+</body>
+</html>

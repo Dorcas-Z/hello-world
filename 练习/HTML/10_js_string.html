@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a='Absabsabs123123 abs 123123';
+    var regexp=/abs/ig;
+    console.log(a.match(regexp));
+    console.log(a.replace(regexp,'***'));
+    var regexp1=/[A-z]\d/ig;
+    console.log(a.match(regexp1));
+    var b='aabcda';
+    var regexp2=/(abs)(123)/;
+    console.log(regexp2.test(a));
+    console.log(RegExp.$1);
+</script>
+</body>
+</html>

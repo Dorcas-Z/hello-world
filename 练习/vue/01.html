@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .color{
+            color:darkred;
+        }
+        .bg1{
+            background:papayawhip;
+        }
+        .bg2{
+            background:peachpuff;
+        }
+    </style>
+</head>
+<body>
+<div id="article">
+    <h2>v-model</h2>
+    <h3>复选框</h3>
+    <p>苹果：<input type="checkbox" v-model="check" value="apple"></p>
+    <p>狮子：<input type="checkbox" v-model="check" value="lion"></p>
+    <p>西瓜：<input type="checkbox" v-model="check" value="water"></p>
+    <p>选择的值为：{{check}}</p>
+
+    <h2>v-bind</h2>
+    <h3 v-bind:class="font">段落1</h3>
+    <p v-bind:class="bg1">幸运的是。。。sdjforeore lsdjfoew flsdifeon lroe sfeofjosuefojwf。。。。。。。。。。。。。。。。。。........... <br>lucky</p>
+    <h3>段落2</h3>
+    <p v-bind:class="[font,bg2]">幸运的是。。。sdjforeore lsdjfoew flsdifeon lroe sfeofjosuefojwf。。。。。。。。。。。。。。。。。。...........</p>
+    <h3>段落3</h3>
+    <p v-bind:class="{font:or,bg1}">幸运的是。。。sdjforeore lsdjfoew flsdifeon lroe sfeofjosuefojwf。。。。。。。。。。。。。。。。。。...........</p>
+    <h3 v-bind:class="4>3?font:bg1">段落4</h3>
+    <p>幸运的是。。。sdjforeore lsdjfoew flsdifeon lroe sfeofjosuefojwf。。。。。。。。。。。。。。。。。。...........</p>
+    <h2>v-if</h2>
+    <h3 v-if="true" v-bind:class="font">段落5----if能看到---创建新元素</h3>
+    <p v-if="option==1">第1段。。。。。。else-if</p>
+    <p v-else-if="option==2">第2段。。。。。。else-if</p>
+    <p v-else-if="option==3">第3段。。。。。。else-if</p>
+    <div v-show="true" style="background: yellow;width:100px;height:100px">
+        v-show：显示或隐藏
+    </div>
+    <input type="text" v-model="model" placeholder="v-model">
+    <p>{{model}}</p>
+    <table border="1" align="center" width="300" >
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>爱好</th>
+        </tr>
+        <tr v-for="a in object">
+            <td v-for="b in a">{{b}}</td>
+        </tr>
+    </table>
+
+</div>
+<div id="app">
+    <h1>{{1+1}}</h1>
+    <h1>获取message:{{message}}</h1>
+    <p v-html="message"></p>
+    <p v-html="font"></p>
+</div>
+
+
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            message:'<b>hello world!</b>',
+            font:'<font color="green">yesterday</font>'
+        }
+    })
+    new Vue({
+        el:'#article',
+        data:{
+            or:false,
+            bg1:'bg1',
+            font:'color',
+            bg2:'bg2',
+            option:2,
+            model:'A',
+            object:[
+                {"ename":"潇潇","age":"20","hobby":"badminton"},
+                {"ename":"芳芳","age":"21","hobby":"badminton"},
+                {"ename":"曹操","age":"22","hobby":"badminton"},
+                {"ename":"德德","age":"23","hobby":"badminton"},
+            ],
+            check:[]
+        }
+    })
+</script>
+</body>
+</html>

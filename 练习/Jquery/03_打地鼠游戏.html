@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hide{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+    $('body').attr('align','center');
+    var tab=$('<table border="1" rules="all" align="center"></table>');
+    $('body').append(tab);
+    for(var i=0;i<2;i++){
+        var tr=$('<tr></tr>');
+        tab.append(tr);
+        for(var j=0;j<6;j++){
+            var td=$('<td width="100" height="100"></td>');
+            tr.append(td);
+        }
+    }
+    var btn2=$('<button style="width:100px;height:100px;background:brown;color:white">来抓我呀</button>');
+    var btn1=$('<button>开始游戏</button>');
+    $('body').append(btn1);
+    var timg;
+    var timr;
+    btn1.click(
+        function(){
+            clearInterval(timg);
+            clearTimeout(timr);
+            btn2.removeClass('hide');
+            var n=parseInt(Math.random()*$('td').length);
+            ($('td:eq('+n+')')).append(btn2);
+            timr=setTimeout(function(){
+                btn2.addClass('hide');
+            },800)
+            timg=setInterval(function(){
+                btn2.removeClass('hide');
+                var n=parseInt(Math.random()*$('td').length);
+                ($('td:eq('+n+')')).append(btn2);
+                timr=setTimeout(function(){
+                    btn2.addClass('hide');
+                },800)
+            },2000)
+        }
+    )
+    var inp=$('<input type="text">');
+    btn1.after(inp);
+    inp.before($('<span>得分</span>'));
+    inp.val(0);
+    btn2.click(function(){
+        console.log(1);
+        event.stopPropagation();
+        inp.val(parseInt(inp.val())+1);
+    })
+    tab.click(function(){
+        inp.val(parseInt(inp.val())-1);
+        if(inp.val()<-5){
+            clearInterval(timg);
+            alert('闯关失败');
+            inp.val(0);
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+*{
+    margin:0;
+    padding:0;
+    color:rgb(102,102,102);
+    font: 12px/1.5 "微软雅黑",Arial;
+}
+a{
+    text-decoration: none;
+}
+/*header*/
+.header{
+    width:990px;
+    margin:0 auto;
+}
+.logo{
+    height:60px;
+    padding-top:10px;
+    line-height:60px;
+}
+.left{
+    float:left;
+}
+.logo-r{
+    font-size:24px;
+    padding-left:20px;
+}
+/*content*/
+.content{
+    background: #e93854;
+    margin-top:15px;
+}
+.wrap{
+    width:990px;
+    margin:0 auto;
+}
+.login-box{
+    height:475px;
+    background:url("../image/banner.png") no-repeat left top;
+}
+.login-form{
+    width:306px;
+    margin-top:40px;
+    padding:20px;
+    float:right;
+    background:#fff;
+}
+.login-form h2{
+    font-size:20px;
+    height:27px;
+    font-weight:normal;
+    margin-bottom: 25px;
+}
+.login-form h2 a{
+    font-size:14px;
+    color:#b61d1d;
+    float:right;
+    line-height:27px;
+    padding-left:21px;
+    background:url("../image/login-icons.png") no-repeat -104px -68px;
+}
+.login-form h2 a:hover{
+    text-decoration: underline;
+}
+.login-form .item{
+    height:38px;
+    margin-bottom:20px;
+    border:1px solid #bdbdbd;
+}
+.login-form .item label{
+    width:38px;
+    height:38px;
+    border-right:1px solid #bdbdbd;
+    background:url("../image/login-icons.png") no-repeat;
+}
+.login-form .item input{
+    float:left;
+    width: 255px;
+    border:0 none;
+    padding:10px 0 10px 10px;
+    font-size:14px;
+    line-height:18px;
+    color:#999;
+}
+.login-form .item .psw{
+    background-position:-48px 0;
+}
+.item2{
+    margin-bottom:15px;
+
+}
+.item2 input{
+    vertical-align: middle;
+    margin-right:3px;
+}
+.item2 label{
+    font-size:12px;
+    vertical-align: middle;
+}
+.item2 a{
+    float:right;
+    font-size:12px;
+}
+.login-btn{
+    display:block;
+    color: #fff;
+    background: #e4393c;
+    height:35px;
+    line-height:35px;
+    text-align:center;
+    font-size:18px;
+}
+/*footer*/
+.footer{
+    width:990px;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:30px;
+    text-align:center;
+}
+.footer ul{
+    width:800px;
+    margin:0 auto;
+}
+.footer ul li{
+    float:left;
+    list-style:none;
+
+}
+.footer ul li a{
+    padding:0 10px;
+    border-right:1px solid #666666;
+}
+.footer ul li a.last{
+    border-right:none;
+}
+.footer p{
+    clear:both;
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>五星红旗</title>
+    <style>
+        #canvas1{
+            animation: a 2s linear infinite;
+        }
+        @keyframes a{
+            from{
+                transform: rotate(0deg);
+            }to{
+            transform: rotate(360deg);
+                         }
+        }
+        .hide{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="1200" height="500"></canvas>
+<span>哈哈哈哈哈哈</span>
+<canvas id="canvas1" width="500" height="500"></canvas>
+
+<audio id="audio" src="../mp3/圣洁归于祢_赞美之泉音乐事工.mp3" controls></audio>
+<audio src="../mp3/1.10.我对你的爱永不变-赞美之泉音乐事工.mp3" controls class="hide"></audio>
+<audio src="../mp3/新心音乐-牵我的手-一起奔跑.mp3" controls class="hide"></audio>
+<button id="last">上一首</button>
+<button id="next">下一首</button>
+<button>重复播放</button>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+    var ele=document.getElementById('canvas');
+    var canvas=ele.getContext('2d');
+    canvas.fillStyle='red';
+    canvas.fillRect(0,0,500,500);
+    canvas.fillStyle='yellow';
+    canvas.beginPath();
+    canvas.moveTo(50,90);
+    canvas.lineTo(100,90);
+    canvas.lineTo(55,130);
+    canvas.lineTo(75,70);
+    canvas.lineTo(95,130);
+    canvas.closePath();
+    canvas.fill();
+    canvas.beginPath();
+    canvas.moveTo(180,95);
+    canvas.lineTo(200,95);
+    canvas.lineTo(185,110);
+    canvas.lineTo(190,85);
+    canvas.lineTo(195,110);
+    canvas.closePath();
+    canvas.fill();
+    canvas.beginPath();
+    canvas.moveTo(150,40);
+    canvas.lineTo(170,40);
+    canvas.lineTo(155,55);
+    canvas.lineTo(160,30);
+    canvas.lineTo(165,55);
+    canvas.closePath();
+    canvas.fill();
+    canvas.beginPath();
+    canvas.moveTo(150,160);
+    canvas.lineTo(170,160);
+    canvas.lineTo(155,175);
+    canvas.lineTo(160,150);
+    canvas.lineTo(165,175);
+    canvas.closePath();
+    canvas.fill();
+    canvas.beginPath();
+    canvas.moveTo(70,200);
+    canvas.lineTo(90,200);
+    canvas.lineTo(75,215);
+    canvas.lineTo(80,190);
+    canvas.lineTo(85,215);
+    canvas.closePath();
+    canvas.fill();
+    var grad=canvas.createLinearGradient(600,0,610,120);
+    grad.addColorStop(0.5,'#0000ff');
+    grad.addColorStop(1,'#ff0000');
+    canvas.fillStyle=grad;
+    canvas.fillRect(600,0,200,200)
+    canvas.fillRect(900,0,200,200)
+    var elem=document.getElementById('canvas1');
+    var canva=elem.getContext('2d');
+    canva.arc(250,250,100,0,Math.PI*2,true);
+    canva.stroke();
+    canva.beginPath();
+    canva.arc(250,250,100,Math.PI*0.5,Math.PI*1.5,true);
+    canva.closePath();
+    canva.fillStyle='white';
+    canva.fill();
+    canva.beginPath();
+    canva.arc(250,250,100,Math.PI*0.5,Math.PI*1.5,false);
+    canva.closePath();
+    canva.fillStyle='black';
+    canva.fill();
+    canva.beginPath();
+    canva.arc(250,200,50,Math.PI*0.5,Math.PI*1.5,false);
+    canva.closePath();
+    canva.fillStyle='white';
+    canva.fill();
+    canva.beginPath();
+    canva.arc(250,300,50,Math.PI*0.5,Math.PI*1.5,true);
+    canva.closePath();
+    canva.fillStyle='black';
+    canva.fill();
+    canva.beginPath();
+    canva.arc(250,300,10,0,Math.PI*2,true);
+    canva.closePath();
+    canva.fillStyle='white';
+    canva.fill();
+    canva.beginPath();
+    canva.arc(250,200,10,0,Math.PI*2,true);
+    canva.closePath();
+    canva.fillStyle='black';
+    canva.fill();
+    var audio=document.getElementById('audio');
+    elem.onclick=function(){
+        if(this.hasAttribute('style')){
+            this.removeAttribute('style');
+            audio.play();
+        }else{
+            this.style.animationPlayState='paused';
+            audio.pause();
+        }
+
+    }
+    var music=document.getElementsByTagName('audio');
+    var next=document.getElementById('next');
+    var last=document.getElementById('last');
+    next.onclick=function(){
+        for(var i=0;i<music.length;i++){
+            if(music[i].currentTime>0){
+                music[i].currentTime=0;
+                music[i].pause();
+                $(music[i]).hide();
+                if(i!=music.length-1){
+                    $(music[i+1]).show();
+                    music[i+1].play();
+                }else{
+                    music[0].play();
+                    $(music[0]).show();
+                }
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

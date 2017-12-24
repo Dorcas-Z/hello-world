@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*并集选择器*/
+        p,h1{
+            color:red;
+        }
+        /*交集选择器 标签选择器+ID选择器 或 标签选择器+类选择器 */
+        h1.first{
+            color:yellow;
+        }
+        /*后代选择器*/
+        /*h1 span{
+            color:green;
+        }*/
+        /*子元素选择器*/
+        h1>span{
+            color:green;
+        }
+        /*属性选择器*/
+        input[type="password"]{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+<p>段落</p>
+<h1 class="first">this <span>is</span> <span>the</span> first</h1>
+<span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<h1>this is <em><span>the</span></em>  second</h1>
+<p class="first">段落</p>
+用户名： <input type="text"><br>
+密码： <input type="password"><br>
+重复密码： <input type="password">
+</body>
+</html>

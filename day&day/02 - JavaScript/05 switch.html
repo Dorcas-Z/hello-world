@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //显示当前时间，其中月份和星期几显示成中文
+    var date=new Date();
+    //document.write(date.getFullYear()+'年'+date.getMonth()+'月'+date.getDate()+'日'+date.getDay());
+    var month=date.getMonth();
+    var strMonth;
+    switch(month+1){
+        case 1:
+            strMonth='一月';
+            break;
+        case 2:
+            strMonth='二月';
+            break;
+        case 3:
+            strMonth='三月';
+            break;
+        case 4:
+            strMonth='四月';
+            break;
+        case 5:
+            strMonth='伍月';
+            break;
+        case 6:
+            strMonth='陆月';
+            break;
+        case 7:
+            strMonth='柒月';
+            break;
+        case 8:
+            strMonth='捌月';
+            break;
+        case 9:
+            strMonth='玖月';
+            break;
+        case 10:
+            strMonth='十月';
+            break;
+        case 11:
+            strMonth='十一月';
+            break;
+        case 12:
+            strMonth='十二月';
+            break;
+    }
+    var day=date.getDay();
+    var strDay;
+    switch(day){
+        case 1:
+            strDay='星期一';
+            break;
+        case 2:
+            strDay='星期二';
+            break;
+        case 3:
+            strDay='星期三';
+            break;
+        case 4:
+            strDay='星期四';
+            break;
+        case 5:
+            strDay='星期五';
+            break;
+        case 6:
+            strDay='星期六';
+            break;
+        case 0:
+            strDay='星期日';
+            break;
+    }
+    document.write(date.getFullYear()+'年'+strMonth+date.getDate()+'日'+' '+strDay);
+</script>
+</body>
+</html>

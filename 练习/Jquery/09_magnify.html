@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+            text-decoration: none;
+        }
+        #box{
+            width:400px;
+            height:470px;
+            margin:0px auto;
+        }
+        #box1{
+            width:100%;
+            height:400px;
+            position:relative;
+            overflow: hidden;
+        }
+        #box2{
+            width:100%;
+            height:100px;
+        }
+        #box div:nth-of-type(1) img{
+            width:100%;
+            height:400px;
+            position:absolute;
+        }
+        #box div:nth-of-type(2) img{
+            width: 66.5px;
+            height:70px;
+            float:left;
+            opacity: .5;
+        }
+        #box div:nth-of-type(2) img:first-of-type{
+            opacity:1;
+        }
+        #sup{
+            width:800px;
+            height:600px;
+            position:absolute;
+            z-index: 999;
+            display:none;
+
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="box1">
+        <img src="../images/images/1.jpg" alt="">
+        <img src="../images/images/2.jpg" alt="">
+        <img src="../images/images/3.jpg" alt="">
+        <img src="../images/images/4.jpg" alt="">
+        <img src="../images/images/5.jpg" alt="">
+        <img src="../images/images/6.jpg" alt="">
+        <div id="sup"></div>
+    </div>
+    <div id="box2">
+        <img src="../images/images/1.jpg" class="1" alt="">
+        <img src="../images/images/2.jpg" alt="">
+        <img src="../images/images/3.jpg" alt="">
+        <img src="../images/images/4.jpg" alt="">
+        <img src="../images/images/5.jpg" alt="">
+        <img src="../images/images/6.jpg" alt="">
+    </div>
+</div>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+
+    $('#box2 img').hover(function(){
+        $(this).fadeTo(300,1)
+    },function(){
+        if($(this).hasClass('1')){
+            $(this).fadeTo(300,1)
+        }else{
+            $(this).fadeTo(300,.5)
+        }
+    })
+    $('#box2 img').click(function(){
+        $(this).attr('class','1').siblings('img').removeAttr('class').fadeTo(300,.5);
+        $('#box1 img').eq($(this).index('#box2 img')).fadeIn(600).siblings('img').fadeOut(600);
+
+    })
+    $('#box1').hover(function(e){
+        var src=$(e.target).attr('src');
+        $('#sup').css({
+            background:'url("'+src+'") no-repeat',
+        })
+        $('#sup').fadeIn(300);
+    },function(){
+        $('#sup').fadeOut(300);
+    })
+    $('#sup').mousemove(function(e){
+        $(this).css({
+            backgroundPositionX:-e.offsetX*0.6+"px",
+            backgroundPositionY:-e.offsetY*0.6+"px",
+
+        })
+    })
+</script>
+</body>
+</html>

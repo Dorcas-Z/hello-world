@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a=new RegExp('\^\\d{4}\$','g')
+    var b=prompt('请输入出生年份');
+    if(a.test(b)){
+        console.log(b);
+    }else{
+        console.log('重新输入');
+    }
+
+    /*var arr1=[];
+    for(var i=0;i<10;i++){
+        arr1.push(Math.floor(Math.random()*90)+10);
+    }
+    console.log(arr1);
+    var arr2=[];
+    for(var i=0;i<arr1.length;i++){
+
+        if(arr2.indexOf(arr1[i])<0){
+            arr2.push(arr1[i]);
+            continue;
+        }
+        if(arr2.indexOf(arr1[i])>=0){
+            arr2.push(Math.floor(Math.random()*90)+10);
+        }
+
+    }
+    console.log(arr2.sort(function(a,b){return a-b}));*/
+    var arr=[];
+    while(arr.length<10){
+        var num=Math.floor(Math.random()*90)+10;
+        arr.push(num);
+        for(var i=0;i<arr.length-1;i++){
+            if(arr[arr.length-1]==arr[i]){
+              arr.pop();
+            }
+        }
+    }
+    console.log(arr);
+    console.log(arr.sort(function(a,b){return a-b}));
+</script>
+</body>
+</html>

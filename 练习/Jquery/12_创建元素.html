@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<button>创建</button>
+<button>获取</button>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<input type="text" value="1">
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+    $('button:contains("创建")').click(function(){
+        var p=$('<p class="p1">添加P标签元素 <span>百度</span></p>');
+        $('div').append(p);
+    })
+
+    $('button:contains("获取")').click(function(){
+        console.log($('.p1 span'));
+    })
+    $('.p1 span').click(function(){
+        console.log($(this));
+        $('.p1').css('background','red')
+    })
+    $('li').click(function(){
+        console.log(1);
+        $('li').mouseleave(function(){
+            console.log(2);
+        })
+        var num=$('input').val();
+        $('input').val(num+1);
+    })
+    $('input').change(function(){
+        var div=$('<div style="width:100px;height:100px;background:red;">1</div>')
+        $('body').append(div);
+    })
+    var num=2.1
+    console.log(Math.ceil(num));
+</script>
+</body>
+</html>

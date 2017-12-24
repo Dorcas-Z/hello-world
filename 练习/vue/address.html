@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <select v-model="i">
+        <option value="" v-for="(a,key) in province" :value="key">{{a}}{{key}}</option>
+    </select>
+    <select>
+        <option value="" v-for="a in citys[i]">{{a}}</option>
+    </select>
+    <input type="text" v-model.number="num1">+<input type="text" v-model.number="num2">=<span>{{num1+num2}}</span>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            province:['陕西','黑龙江','广东'],
+            citys:[
+                ['陕西1','陕西2','陕西3'],
+                ['黑龙江1','黑龙江2','黑龙江3'],
+                ['广东1','广东2','广东3']
+            ],
+            i:null,
+            num1:null,
+            num2:null
+        }
+    })
+</script>
+</body>
+</html>

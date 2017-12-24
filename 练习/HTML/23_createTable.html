@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+    </style>
+</head>
+<body>
+<p>制作表格</p>
+<p><label for="row">行</label><input type="text" id="row"></p>
+<p><label for="col">列</label><input type="text" id="col"></p>
+<br>
+<script>
+    var tab=document.createElement('table');
+    tab.rules='all';
+    tab.width=500;
+    tab.border=1;
+    var row=document.getElementById('row');
+    var col=document.getElementById('col');
+    row.onchange=tabShow;
+    col.onchange=tabShow;
+    document.body.appendChild(tab);
+    function tabShow(){
+        while(tab.children.length>0){
+            tab.removeChild(tab.lastElementChild);
+        }
+        for(var i=0;i<row.value;i++){
+            var tr=document.createElement('tr');
+            tab.appendChild(tr);
+            for(var j=0;j<col.value;j++){
+                var td=document.createElement('td');
+                td.height=20;
+                td.width=50;
+                td.onclick=set;
+                tr.appendChild(td);
+            }
+        }
+    }
+    function set(){
+        if(this.children.length<1){
+            var val=this.innerHTML;
+            this.innerHTML='<input type="text" value="'+val+'" autofocus>';
+        }else{
+            this.innerHTML=this.children[0].value;
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+            text-decoration:none;
+        }
+        li{
+            float:left;
+            width:200px;
+            height:30px;
+            margin:10px;
+            border:1px solid #000000;
+            text-align: center;
+            line-height: 30px;
+        }
+        div{
+            width:200px;
+            height:30px;
+            border:1px solid #ffffff;
+            background: rgba(0,0,0,.4);
+            position:absolute;
+            margin:10px;
+            z-index:-1;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#">百度新闻</a></li>
+    <li><a href="#">腾讯新闻</a></li>
+    <li><a href="#">新浪新闻</a></li>
+</ul>
+<div></div>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+    $('li').click(function(){
+        var n=$(this).index('li');
+        var left=($(this).width()+22)*n;
+        $('div').animate({
+            left:left+'px'
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1,#box2,#box3{
+            width:400px;
+            height:500px;
+            border:1px solid red;
+            float: left;
+            position:relative;
+        }
+        img{
+            width:120px;
+            height:150px;
+        }
+        div div{
+            width:400px;
+            height:100px;
+            border:1px solid #000000;
+            position:absolute;
+            bottom:0px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box1">
+    <img src="../images/12.gif" alt="">
+    <div>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</div>
+<div id="box2">
+    <div>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</div>
+<div id="box3">
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <div>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</div>
+<script>
+    var img=document.getElementsByTagName('img')[0];
+    img.addEventListener('dragstart',start);
+    img.addEventListener('drag',ing);
+    img.addEventListener('dragend',end);
+    var p=document.getElementsByTagName('p');
+    function start(){
+        p[0].innerHTML='拖拽开始了。。。'
+        p[2].innerHTML='';
+
+    }
+    function ing(e){
+        var event=window.event||e;
+        p[1].innerHTML='x:'+event.pageX+'y:'+event.pageY+'';
+    }
+    function end(){
+        p[2].innerHTML='拖拽结束了。。。';
+        p[1].innerHTML='';
+        p[0].innerHTML='';
+    }
+    var enter=document.getElementById('box2');
+    enter.addEventListener('dragenter',fnEnter);
+    enter.addEventListener('drop',drop);
+    enter.ondragover=function(e){
+        var event=window.event||e;
+        event.preventDefault();
+        p[4].innerHTML='x:'+event.offsetX+'y:'+event.offsetY+'';
+    }
+    function drop(e){
+        var event=window.event||e;
+        var url=event.dataTransfer.getData('text');
+        var img=new Image();
+        img.src=url;
+        enter.appendChild(img);
+    }
+    function fnEnter(){
+        p[3].innerHTML='目标进入区域。。。'
+    }
+    var ele=document.getElementById('canvas');
+    var canvas=ele.getContext('2d');
+    ele.ondragover=function(e){
+        var event=e||window.event;
+        event.preventDefault();
+    }
+    ele.ondrop=function(e){
+        var event=e||window.event;
+        var url=event.dataTransfer.getData('text');
+        var img=new Image();
+        img.src=url;
+        img.onload=function(){
+            canvas.drawImage(img,event.offsetX,event.offsetY,50,50);
+        }
+    }
+
+</script>
+
+</body>
+</html>

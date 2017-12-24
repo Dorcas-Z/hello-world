@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            width:200px;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+<button>隐藏</button>
+<img src="../images/05.jpg" alt="">
+<img src="../images/06.jpg" alt="">
+<img src="../images/07.jpg" alt="">
+<img src="../images/09.jpg" alt="">
+<script>
+    /*第二个：10行10列表格 td随机颜色*/
+    /*var tab=document.createElement('table');
+    tab.border=1;
+    tab.width=400;
+    document.body.appendChild(tab);
+    for(var i=0;i<10;i++){
+        var tr=document.createElement('tr');
+        tab.appendChild(tr);
+        for(var j=0;j<10;j++){
+            var td=document.createElement('td');/!*内存中添加*!/
+            td.height=20;
+            td.bgColor=ranColor();
+            tr.appendChild(td);/!*html追加*!/
+        }
+    }
+
+    function ranColor(){
+
+            var a='0123456789abcded';
+            var b='#';
+            for(var i=0;i<6;i++){
+                b+=a.charAt(parseInt(Math.random()*a.length));
+            }
+            return b;
+    }
+    var td=document.getElementsByTagName('td');
+    setInterval(function(){
+        for(var i=0;i<td.length;i++){
+            td[i].bgColor=ranColor();
+        }
+    },300)*/
+    /*第一个：删除图片*/
+    var img=document.getElementsByTagName('img');
+    var btn=document.getElementsByTagName('button')[0];
+    btn.onclick=fn1;
+    for(var i=0;i<img.length;i++){
+        img[i].setAttribute('onclick','fnSelect(this)');
+    }
+    /*function fnSelect(ele){
+        btn.onclick=fn1;
+        function fn1(){
+            ele.setAttribute('style','display:none');
+        }
+
+    }*/
+     function fnSelect(ele){
+     ele.setAttribute('style','border:2px solid red');
+     }
+    function fn1(){
+        for(var i=0;i<img.length;i++){
+            if(img[i].hasAttribute('style')){
+                img[i].setAttribute('style','display:none');
+            }
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

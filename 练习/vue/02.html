@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+    var world={
+        template:'<div><h4>这是子组件</h4><button @click="addfn"></button></div>',
+        data:function(){
+            return{
+                message:'这是子组件的数据'
+            }
+        },
+        methods:{
+            addfn:function(){
+                this.$emit('eqw',this.message)
+            }
+        }
+    }
+
+    new Vue({
+        el:'#app',
+        template:'<div><h3>hello world这是父组件:{{msg}}</h3><world style="background:yellow" @eqw="toshow"></world></div>',
+        data:function(){
+            return {
+                msg:''
+            }
+        },
+        components:{
+            'world':world
+        },
+        methods:{
+            toshow:function(message){
+                this.msg=message;
+            }
+        }
+    })
+</script>
+</body>
+</html>

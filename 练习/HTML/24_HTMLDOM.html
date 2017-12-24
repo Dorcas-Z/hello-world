@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*表格跨行跨列*/
+    var tab=document.createElement('table');
+    tab.border=1;
+    tab.width=300;
+    for(var i=0;i<3;i++){
+        var tr=tab.insertRow();
+        for(var j=0;j<3;j++){
+            var td=tr.insertCell();
+            td.height=100;
+        }
+    }
+    document.body.appendChild(tab);
+    tab.rows[0].cells[0].colSpan=2;
+    tab.rows[0].deleteCell(1);
+    tab.rows[0].cells[1].rowSpan=2;
+    tab.rows[1].deleteCell(2);
+    tab.rows[1].cells[0].rowSpan=2;
+    tab.rows[2].deleteCell(0);
+    tab.rows[2].cells[0].colSpan=2;
+    tab.rows[2].deleteCell(1);
+
+    /*创建表格*/
+    /*var tab=document.createElement('table');
+    tab.border=1;
+    tab.width=300;
+    var arr=[
+        {ename:'tom',age:20,class:'web'},
+        {ename:'yom',age:21,class:'java'},
+        {ename:'gom',age:22,class:'php'},
+        {ename:'eom',age:23,class:'web'},
+    ];
+    for(var i in arr){
+        var tr=tab.insertRow();
+        for(var j in arr[i]){
+            var td=tr.insertCell();
+            td.innerHTML=arr[i][j];
+        }
+    }
+    document.body.appendChild(tab);*/
+</script>
+</body>
+</html>

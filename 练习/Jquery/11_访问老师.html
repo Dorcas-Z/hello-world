@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+    $(function(){
+        $.ajax({
+            type:'get',
+            url:'http://127.0.0.1/1.php?callback=?',
+            dataType:'jsonp',
+            success:function(data){
+                console.log(1);
+                console.log(data);
+            }
+        })
+    })
+
+    /*$.getJSON('http://127.0.0.1/news.php?callback=?',function (data) {
+        console.log(1);
+    })*/
+
+</script>
+</body>
+</html>

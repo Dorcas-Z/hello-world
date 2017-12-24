@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select name="" id="pre" style="text-align:center">
+    <option value="-1">-请选择-</option>
+</select>
+<select name="" id="city">
+    <option value="-1">-请选择-</option>
+</select>
+<select name="" id="reg">
+    <option value="-1">-请选择-</option>
+</select>
+<script>
+    function $(ele){
+        return document.getElementById(ele);
+    }
+    var pre=$('pre');
+    pre.setAttribute('onchange','fnChange(this.value)');
+    var city=$('city');
+    var pres=['山西省','陕西省','黑龙江省','广东省'];
+    var citys=[
+        ['大同市','太原市','临汾市'],
+        ['西安市','宝鸡市','汉中市'],
+        ['佳木斯市','黑龙江市','牡丹江'],
+        ['深圳市','佛山市','珠海市'],
+    ];
+    var reg=$('reg');
+    city.setAttribute('onchange','regChange()');
+    var regs={
+       //"-请选择-":[],
+        大同市:['哈哈','嘿嘿'],
+        太原市:['1','2'],
+        临汾市:['3','4'],
+        西安市:['5','6'],
+        宝鸡市:['7','8'],
+        汉中市:['9','10'],
+        佳木斯市:['2','3'],
+        黑龙江市:['4','5'],
+        牡丹江:['2','4'],
+        深圳市:['7','9'],
+        佛山市:['3','5'],
+        珠海市:['4','6'],
+    }
+    function createOption(arr,ele){
+        for(var i=0;i<arr.length;i++){
+            var opt=document.createElement('option');
+            opt.value=i;
+            opt.innerHTML=arr[i];
+            ele.appendChild(opt);
+        }
+    }
+   createOption(pres,pre);
+    function fnChange(num){
+        var arr=citys[num];
+        while(city.children.length>1){
+            city.removeChild(city.lastElementChild);
+        }
+        while(reg.children.length>1){
+            reg.removeChild(reg.lastElementChild);
+        }
+        if(num!=-1){
+            createOption(arr,city);
+        }
+    }
+
+    function regChange(){
+        while(reg.children.length>1){
+            reg.removeChild(reg.lastElementChild);
+        }
+      for(var i=0;i<city.children.length;i++){
+          if(city.children[i].selected){
+                  for(var j in regs){
+                      if(city.children[i].innerHTML==j){
+                          createOption(regs[j],reg);
+                      }
+                  }
+          }
+      }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>00:00:00</h1>
+<button onclick="start()">时间开始</button>
+<button onclick="stop()">时间结束</button>
+<button onclick="count()">一次性计时器</button>
+<button onclick="clearcount()">清除计时器</button>
+<script>
+    var h1=document.getElementsByTagName('h1')[0];
+    var timeset;
+    function start(){
+        clearInterval(timeset);
+        var time=new Date();
+        str=time.toTimeString();
+        h1.innerHTML=str.slice(0,str.indexOf(' '));
+        timeset=setInterval(function(){
+            var time=new Date();
+            str=time.toTimeString();
+            h1.innerHTML=str.slice(0,str.indexOf(' '));
+        },1000);
+    }
+    function stop(){
+        clearInterval(timeset);
+    }
+    var t;
+    function count(){
+        t=setTimeout(function(){
+            console.log(1);
+        },3000)
+    }
+    function clearcount(){
+        clearTimeout(t);
+
+    }
+
+</script>
+</body>
+</html>

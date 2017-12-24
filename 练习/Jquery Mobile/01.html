@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Mobile 应用程序</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="CSS/jquery.mobile-1.3.2.css">
+    <link rel="stylesheet" href="CSS/jquery.mobile.structure-1.3.2.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="page1">
+    <div data-role="header">
+        <h1>第 一 页</h1>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview">
+            <li><a href="#page2">跳转到第二页</a></li>
+        </ul>
+        <dl>
+            <dd>基本按钮</dd>
+            <dt>
+                <a href="#" data-role="button">a link</a>
+                <button>button</button>
+                <input type="submit" value="submit">
+                <input type="button" value="input">
+                <input type="reset" value="reset">
+            </dt>
+            <dd>内联data-inline=true 样式 data-theme</dd>
+            <dt>
+                <a href="#" data-role="button" data-inline="true" data-theme="a">a</a>
+                <a href="#" data-role="button" data-inline="true" data-theme="b">b</a>
+                <a href="#" data-role="button" data-inline="true" data-theme="c">c</a>
+                <button data-inline="true" data-theme="d">d</button>
+                <button data-inline="true" data-theme="e">e</button>
+            </dt>
+            <dd>按钮变小data-mini=true</dd>
+            <dt>
+                <a href="#" data-role="button" data-inline="true" data-theme="a" data-mini="true">a</a>
+                <a href="#" data-role="button" data-inline="true" data-theme="b" data-mini="true">b</a>
+                <a href="#" data-role="button" data-inline="true" data-theme="c" data-mini="true">c</a>
+                <button data-inline="true" data-theme="d" data-mini="true">d</button>
+                <button data-inline="true" data-theme="e" data-mini="true">e</button>
+            </dt>
+            <dd>按钮图标data-icon 图标位置data-iconpos</dd>
+            <dt>
+                <a href="#" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-icon="gear" data-iconpos="left">left</a>
+                <a href="#" data-role="button" data-inline="true" data-theme="b" data-mini="true" data-icon="delete" data-iconpos="right">right</a>
+                <a href="#" data-role="button" data-inline="true" data-theme="c" data-mini="true" data-icon="grid" data-iconpos="top">top</a>
+                <button data-inline="true" data-theme="d" data-mini="true" data-icon="info" data-iconpos="bottom">bottom</button>
+                <button data-inline="true" data-theme="e" data-mini="true" data-icon="search" data-iconpos="notext">notext</button>
+            </dt>
+            <dd>按钮组-默认</dd>
+            <dt>
+                <div data-role="controlgroup">
+                    <a href="#" data-role="button">Yes</a>
+                    <a href="#" data-role="button">No</a>
+                    <a href="#" data-role="button">Maybe</a>
+                </div>
+
+            </dt>
+            <dd>按钮组-水平</dd>
+            <dt>
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#" data-role="button">Yes</a>
+                    <a href="#" data-role="button">No</a>
+                    <a href="#" data-role="button">Maybe</a>
+                </div>
+            </dt>
+            <dd>按钮组-水平,迷你</dd>
+            <dt data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <a href="#" data-role="button" class="ui-disabled">Yes</a>
+                <a href="#" data-role="button">No</a>
+                <a href="#" data-role="button">Maybe</a>
+            </dt>
+            <dd>控制按钮样式</dd>
+            <dt>
+                <a href="#" data-role="button"data-icon="gear">Default</a>
+                <a href="#" data-role="button"data-icon="gear"data-corners="false">No rounded corners</a>
+                <a href="#" data-role="button"data-icon="gear"data-shadow="false">No button shadow</a>
+                <a href="#" data-role="button"data-icon="gear"data-iconshadow="false">No icon disc shadow</a>
+            </dt>
+        </dl>
+
+
+    </div>
+    <div data-role="footer">
+        <h4>页脚</h4>
+    </div>
+</div>
+
+<div data-role="page" id="page2">
+    <div data-role="header">
+        <h1>第 二 页</h1>
+        <a data-role="button" data-rel="back" data-theme="e">back</a>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview">
+            <li><a href="#page3">跳转到第三页</a></li>
+        </ul>
+    </div>
+    <div data-role="footer">
+        <h4>页脚</h4>
+    </div>
+</div>
+
+<div data-role="page" id="page3">
+    <div data-role="header">
+        <h1>第 三 页</h1>
+        <a data-role="button" data-rel="back" data-theme="c">back</a>
+        <a data-role="button" href="#page1">返回主页</a>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview">
+            <li><a href="#page1">跳转到第一页</a></li>
+            <li><a href="01.html" data-rel="dialog" data-transition="flip">open dialog</a></li>
+        </ul>
+    </div>
+    <div data-role="footer">
+        <h4>页脚</h4>
+    </div>
+</div>
+
+</body>
+</html>

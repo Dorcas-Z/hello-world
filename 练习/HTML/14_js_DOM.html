@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+            list-style: none;
+            text-decoration:none;
+        }
+        ul{
+            display:flex;
+            width:100%;
+            height:50px;
+            line-height:50px;
+            text-align:center;
+            background: yellowgreen;
+
+        }
+        ul li{
+
+            width:33%;
+        }
+        div{
+            height:200px;
+            width:100%;
+            background:ghostwhite;
+            position:absolute;
+        }
+        div:first-of-type{
+            z-index:3;
+        }
+
+    </style>
+</head>
+<body>
+    <!--第三部分：选项卡-->
+    <ul id="nav">
+        <li><a href="#" id="first">热点新闻</a></li>
+        <li><a href="#" id="second">国际新闻</a></li>
+        <li><a href="#" id="third">教育</a></li>
+    </ul>
+    <div id="one">
+        <h1>热点新闻</h1>
+    </div>
+    <div id="two">
+        <h1>国际新闻</h1>
+    </div>
+    <div id="three">
+        <h1>教育</h1>
+    </div>
+    <p>sdjfwonfofoewjfoew</p>
+    <!--第二部分：设置属性-->
+    <!--<div id="dv"></div>
+    <button id="show">显示</button>
+    <button id="hide">隐藏</button>-->
+    <!--第一部分：获取节点-->
+    <!--<div>
+        <h1><span>嘿嘿嘿嘿</span></h1>&lt;!&ndash;这是注释&ndash;&gt;
+        <p>遍历节点数</p>
+    </div>-->
+<script>
+    /*第三部分：选项卡*/
+    /*第三种方法*/
+    var div=document.getElementsByTagName('div');
+    var nav=document.getElementById('nav');
+    var a=nav.getElementsByTagName('a');
+    for(var i=0;i<a.length;i++){
+        a[i].index=i;//索引值
+        a[i].setAttribute('onclick','fnShow(this)');
+    }
+    function fnShow(els){
+        var num=els.index;
+        for(var i=0;i<div.length;i++){
+            div[i].setAttribute('style','display:none;');
+        }
+        div[num].setAttribute('style','display:block;');
+    }
+    /*第二种方法*/
+    /*var div=document.getElementsByTagName('div');
+    var nav=document.getElementById('nav');
+    var a=nav.getElementsByTagName('a');
+    for(var i=0;i<a.length;i++){
+        a[i].setAttribute('onclick','fnShow('+i+')');
+    }
+    function fnShow(num){
+        for(var i=0;i<div.length;i++){
+            div[i].setAttribute('style','display:none;');
+        }
+        div[num].setAttribute('style','display:block;');
+    }*/
+    /*第一种方法*/
+    /*var fir=document.getElementById('first');
+    var sec=document.getElementById('second');
+    var thr=document.getElementById('third');
+    var one=document.getElementById('one');
+    var two=document.getElementById('two');
+    var three=document.getElementById('three');
+    fir.setAttribute('onclick','fn1()');
+    sec.setAttribute('onclick','fn2()');
+    thr.setAttribute('onclick','fn3()');
+    function fn1(){
+        one.removeAttribute('style');
+        two.setAttribute('style','display:none;');
+        three.setAttribute('style','display:none;');
+    }
+    function fn2(){
+        one.setAttribute('style','display:none;');
+        two.removeAttribute('style');
+        three.setAttribute('style','display:none;');
+    }
+    function fn3(){
+        two.setAttribute('style','display:none;');
+       one.setAttribute('style','display:none;');
+        three.removeAttribute('style');
+    }*/
+
+    /*第二部分：设置属性*/
+    /*var show=document.getElementById("show");
+    var hide=document.getElementById("hide");
+    var div=document.getElementById("dv");
+    show.setAttribute('onclick',"fn()");
+    hide.setAttribute('onclick',"fn()");
+    function fn(){
+        if(div.hasAttribute('style')){
+            div.removeAttribute('style');
+        }else{
+            div.setAttribute('style','display:none;');
+        }
+    }*/
+    /*var show=document.getElementById("show");
+    var hide=document.getElementById("hide");
+    var div=document.getElementById("dv");
+    show.setAttribute('onclick',"fnShow()");
+    hide.setAttribute('onclick',"fnHide()");
+    function fnShow(){
+        div.removeAttribute('style');
+    }
+    function fnHide(){
+        div.setAttribute('style',"display:none;")
+    }*/
+
+
+    /*第一部分：获取节点*/
+    /*console.log(document);
+    console.log(document.firstChild);
+    console.log(document.documentElement);//html
+    console.log(document.documentElement.firstChild.firstChild.nextSibling);//meta
+    console.log(document.head);//head
+    console.log(document.head.childNodes);
+    console.log(document.head.childNodes[1]);//meta
+    console.log(document.head.firstChild.nextSibling);//meta
+    console.log(document.body);//body
+    console.log(document.body.childNodes);//
+    console.log(document.body.childNodes[1]);//div
+    console.log(document.body.childNodes[1].childNodes);//[text,h1,comment,text,p,test,]
+    console.log(document.body.childNodes[1].childNodes[2]);//<!--这是注释-->
+    console.log(document.body.childNodes[1].lastChild);//text
+    console.log(document.body.childNodes[1].lastChild.previousSibling);//p
+    console.log(document.body.childNodes[1].childNodes[1].firstChild);//span
+    console.log(document.body.childNodes[1].childNodes[1].firstChild.firstChild);//嘿嘿嘿嘿*/
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*var a={};
+    var b={key:'b'};
+    var c={key:'c'};
+    var d={key:'d'};
+    a[b]=123;
+    a[c]=456;
+    console.log(a[d]);*/
+    /*function a(n) {
+        if (n <10) {
+            return a(n + 1) + n;
+        }
+        return 1;
+    }
+    console.log(a(0));
+    var b=function (n) {
+        console.log(n);
+    }
+    b(10);*/
+    /*function a(){
+        b=10;
+        console.log(b);
+    }
+    a();
+    console.log(b);
+    var n;
+    function fn(){
+        var b='b';
+        n=function(){
+            return b;
+        }
+    }
+    fn();
+    console.log(n);*/
+    function a(){
+        var num=20;
+        (function(b){
+            b(num)
+        }(c))
+    }
+    a();
+    function c(num){
+        console.log(num);
+    }
+</script>
+</body>
+</html>

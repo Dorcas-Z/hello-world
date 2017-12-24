@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //显示当前时间，其中月份和星期几显示成中文
+    var date=new Date();
+    var week,month;
+    var day=date.getDay()
+                     /*0        1        2        3         4       5          6*/
+    week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+           /*0      1           2*/
+    month=["一月","二月","三月","四月","五月","六月","柒月","八月","玖月","十月","十一月","十二月"];
+    //document.write(date.getFullYear()+'年'+date.getMonth()+'月'+date.getDate()+'日'+date.getDay());
+
+    document.write(date.getFullYear()+'年'+month[date.getMonth()]+date.getDate()+'日'+' '+week[date.getDay()]);
+
+    document.write('<br/>week数组的长度:'+week.length);
+    //数组常用的方法
+
+    document.write("<br/>"+week.join('-'));//使用特定分隔符把数组元素都连起来
+    var num=[1,4,6,3,9,8,10];
+    document.write("<br/>"+num.sort());
+
+    function sortNum(a,b){
+        if(a>b){
+            return 1;
+        }else if(a<b){
+            return -1;
+        }else{
+            return 0;
+        }
+    }
+    document.write("<br/>"+num.sort(sortNum));
+    var len=num.push(100,1000);
+    document.write("<br/>"+len);
+    document.write("<br/>"+num);
+</script>
+</body>
+</html>

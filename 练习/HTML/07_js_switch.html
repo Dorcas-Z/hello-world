@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="sanjiao()">直角三角形</button>
+<button onclick="shushu()">123568</button>
+<button onclick="zero()">000000</button>
+<button onclick="triangle()">三角形</button>
+<button onclick="times()">九九乘法表</button>
+<button onclick="print1()">打印多行*</button>
+<button onclick="service()">10086</button>
+<button onclick="cycle()">while循环</button>
+<script>
+    function sanjiao(){
+        for(var h=0;h<10;h++){
+            for(var i=0;i<=h;i++){
+                document.write('*');
+            }
+            document.write('<br/>');
+        }
+    }
+    function shushu(){
+        var s='';
+        for(var i=1;i<9;i++){
+            if(i==4||i==7){
+                continue;
+            }
+            if(i==8){
+                s+=i;
+                break;
+            }
+            s+=i+',';
+        }
+        console.log(s);
+    }
+    function zero(){
+        var s='';
+        for(var i=0;i<6;i++){
+            if(i==5){
+                s+=0;
+                break;
+            }
+            s+='0,'
+        }
+        console.log(s);
+    }
+    function triangle(){
+        var b=0;
+        while(b<=9){
+            if(b==9){
+                var c=0;
+                while(c<14){
+                    document.write('*');
+                    c++;
+                }
+                break;
+            }
+            var a=1;
+            while((a+b)<=10||(a-b)<=10){
+                if((a+b==10)||(a-b==10)){
+                    document.write('*');
+                }
+                document.write('&nbsp;');
+                a++;
+            }
+            document.write('<br/>');
+            b++;
+        }
+
+    }
+    function times(){
+        for(var a=1;a<10;a++){
+            for(var b=1;b<=a;b++){
+                document.write(b+'*'+a+'='+a*b);
+                document.write('&nbsp;');
+                if(b==2&&(a==3||a==4)){
+                    document.write('&nbsp;&nbsp;');
+                }
+            }
+            document.write('<br/>');
+        }
+        /*var a=1;
+        while(a<10){
+            var b=1;
+            while(b<=a){
+                document.write(b+'*'+a+'='+a*b);
+                document.write('&nbsp;&nbsp;');
+
+                if(b==2&&(a==3||a==4)){
+                    document.write('&nbsp;&nbsp;');
+                }
+                b++;
+            }
+            document.write('<br/>');
+            a++;
+        }*/
+    }
+    function print1(){
+        var i=0;
+        while(i<10){
+            var j=0;
+            while(j<10){
+                document.write('*');
+                j++;
+            }
+            document.write('<br/>');
+            i++;
+        }
+    }
+    function service(){
+        var n=prompt('请输入您需要的服务');
+        switch(n){
+            case "1":
+                alert('人工服务');
+                break;
+            case "2":
+                alert('办理业务');
+                break;
+            case "3":
+                alert('电话缴费');
+                break;
+            default:
+                alert('无此业务');
+        }
+        document.write('谢谢惠顾');
+    }
+    function cycle(){
+        var i=0;
+        while(i<10){
+            console.log(i);
+            i++;
+        }
+    }
+
+</script>
+</body>
+</html>

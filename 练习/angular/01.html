@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="div1">
+    name:{{ename}} <br>
+    age:{{age}}
+</div>
+<div ng-controller="div2">
+    <button ng-click="creatTable()">添加数据</button>
+    select:<input type="text" ng-model="select">
+    <table border="1" width="700">
+        <tr>
+            <th><a href="javascript:void(0)" ng-click="order='ename';reverse=!reverse">姓名</a></th>
+            <th><a href="javascript:void(0)" ng-click="order='birthday'">生日</a></th>
+            <th><a href="javascript:void(0)" ng-click="order='salary'">工资</a></th>
+            <th><a href="javascript:void(0)">介绍</a></th>
+        </tr>
+        <tr ng-repeat="obj in (arr|filter:select|orderBy:order:reverse)">
+            <td>{{obj.ename|uppercase}}</td>
+            <td>{{obj.birthday|date:'yyyy-mm-dd'}}</td>
+            <td>{{obj.salary|currency}}</td>
+            <td>{{obj.intro}}</td>
+        </tr>
+    </table>
+</div>
+
+<script src="js/angular.js"></script>
+<script>
+    angular.module('myapp',[]).controller('div1',function($scope){
+        $scope.ename='tom';
+        $scope.age=20;
+    }).controller('div2',function($scope){
+        /*$scope.arr=[
+            {ename:'Smith',birthday:121231236721,salary:1234567,intro:'史密斯是一个难得的员工，此人出生在战火纷飞的年代，饱受时代的洗礼，却顽强的坚持了下来。'},
+            {ename:'King',birthday:1212312336721,salary:234567,intro:'史密斯是一个难得的员工，此人出生在战火纷飞的年代，饱受时代的洗礼，却顽强的坚持了下来。'},
+            {ename:'Scott',birthday:121231446721,salary:334567,intro:'史密斯是一个难得的员工，此人出生在战火纷飞的年代，饱受时代的洗礼，却顽强的坚持了下来。'},
+            {ename:'Jeff',birthday:121231211721,salary:534567,intro:'史密斯是一个难得的员工，此人出生在战火纷飞的年代，饱受时代的洗礼，却顽强的坚持了下来。'}
+        ];*/
+        $scope.creatTable=function(){
+            $scope.arr=[
+                {ename:'Smith',birthday:121231236721,salary:1234567,intro:'史密斯是一个难得的员工，此人出生在战火纷飞的年代，饱受时代的洗礼，却顽强的坚持了下来。'},
+                {ename:'King',birthday:1212312336721,salary:234567,intro:'史密斯是一个难得的员工，此人出生在战火纷飞的年代，饱受时代的洗礼，却顽强的坚持了下来。'},
+                {ename:'Scott',birthday:121231446721,salary:334567,intro:'史密斯是一个难得的员工，此人出生在战火纷飞的年代，饱受时代的洗礼，却顽强的坚持了下来。'},
+                {ename:'Jeff',birthday:121231211721,salary:534567,intro:'史密斯是一个难得的员工，此人出生在战火纷飞的年代，饱受时代的洗礼，却顽强的坚持了下来。'}
+            ];
+        }
+    })
+</script>
+</body>
+</html>

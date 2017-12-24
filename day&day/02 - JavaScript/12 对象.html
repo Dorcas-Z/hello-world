@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //获取当前时间
+    var date=new Date();
+    document.write(date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+'<br/>');
+
+    //对象的属性和方法（date对象）
+    //this:指当前对象，属性和方法属于谁
+    date.name='我是日期';
+    date.show=function(){
+        document.write('日期对象的show方法<br/>');
+        document.write(this.name+'<br/>');
+    };
+    date.show();
+    //使用Object方式创建用户对象
+    document.write('<h3>使用object方式创建用户对象</h3>');
+    var user=new Object();
+    //定义对象的属性
+    user.name='张三';
+    user.pwd='123456';
+    //定义对象的方法
+    user.showInfo=function () {
+        document.write(this.name+'-'+this.pwd+'<br/>');
+    }
+    user.showInfo();
+    //使用对面字面量方式创建用户对象
+    document.write('<h3>使用对面字面量方式创建用户对象</h3>');
+    var use={
+        name:'张三',
+        pwd:'123456',
+        showInfo:function () {
+            document.write(this.name+'-'+this.pwd+'<br/>');
+        }
+    }
+    use.showInfo();
+    //使用工厂模式创建用户对象
+    document.write('<h3>使用工厂模式创建用户对象</h3>');
+    function createUser(name,pwd){
+        var user=new Object();
+        //定义对象的属性
+        user.name=name;
+        user.pwd=pwd;
+        //定义对象的方法
+        user.showInfo=function () {
+            document.write(this.name+'-'+this.pwd+'<br/>');
+        }
+        return user;
+    }
+     var user1=createUser('李四','123456');
+    var user2=createUser('小明','654321');
+    user1.showInfo();
+    user2.showInfo();
+
+    //使用构造函数创建用户对象
+    document.write('<h3>使用构造函数创建用户对象</h3>');
+    function User(name,pwd){
+
+        //定义对象的属性
+        this.name=name;
+        this.pwd=pwd;
+        //定义对象的方法
+        this.showInfo=function () {
+            document.write(this.name+'-'+this.pwd+'<br/>');
+        }
+    }
+    var user3=new User('李四','123456');
+    var user4=new User('小明','654321');
+    user3.showInfo();
+    user4.showInfo();
+    document.write(user3.showInfo==user4.showInfo);
+
+    //使用原型创建用户对象
+    document.write('<h3>使用原型创建用户对象</h3>');
+    function Use(name,pwd){
+
+        //定义对象的属性
+        this.name=name;
+        this.pwd=pwd;
+
+    }
+    Use.prototype.showInfo=function () {
+        document.write(this.name+'-'+this.pwd+'<br/>');
+    }
+    var user5=new Use('李四','123456');
+    var user6=new Use('明明','654321');
+    user5.showInfo();
+    user6.showInfo();
+    document.write(user5.showInfo==user6.showInfo);
+
+</script>
+</body>
+</html>

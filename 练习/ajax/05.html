@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+人员类别：<input type="text">
+<script src="03_ajax.js"></script>
+<script>
+    var inp=document.getElementsByTagName('input')[0];
+    inp.onchange=function(){
+       getData('get','05.php',a,'tabVal='+inp.value)
+    }
+    function a(data){
+        var arr=JSON.parse(data);
+        console.log(arr);
+        /*var tab=document.getElementsByTagName('table')[0];
+        console.log(tab);
+        document.body.removeChild(tab);*/
+        creatTab(arr);
+    }
+    function creatTab(arr){
+        var tab=document.createElement('table');
+        tab.border=1;
+        for(var i=0;i<arr.length;i++){
+            var tr=tab.insertRow();
+            for(var j in arr[i]){
+                var td=tr.insertCell();
+                td.innerHTML=arr[i][j];
+            }
+        }
+        document.body.appendChild(tab);
+    }
+
+
+</script>
+</body>
+</html>

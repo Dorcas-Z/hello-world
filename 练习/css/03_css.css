@@ -1,0 +1,112 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+p>strong{
+    color:red;
+}
+p.txt{
+    color:blue;
+    line-height:28px;
+}
+p{
+    letter-spacing:2px;
+}
+/*列表的CSS样式开始*/
+ul{
+    list-style-position:inside;
+}
+li{
+    border:1px solid #000;
+}
+/*列表的CSS样式结束*/
+/*超链接的CSS样式开始*/
+a:link{
+    color:blue;
+}
+a:visited{
+    color:red;
+}
+a:active{
+    color:yellow;
+}
+.div1{
+    width:100px;
+    height:100px;
+    border:1px solid #000;
+}
+.div1:hover{
+    background:green;
+    cursor:text;
+}
+/*超链接的CSS样式结束*/
+/*图片的CSS样式开始*/
+body>img{
+
+
+    border-top:1px dotted red;
+    vertical-align:middle;
+
+}
+.div2{
+    border:1px solid #000;
+    text-align:center;
+
+}
+.div2 img{
+    vertical-align:middle;
+}
+.div3{
+    width:800px;
+    height:330px;
+    border:1px solid #000;
+    background-image:url("../images/17.jpg");
+    background-position:-560px -166px;
+    background-repeat:no-repeat;
+    background-color:rgba(255,0,0,.5);
+}
+
+/*超链接的CSS样式结束*/
+/*float定位开始*/
+.div4{
+    width:100px;
+    height:100px;
+    background:red;
+
+}
+.div5{
+    width:100px;
+    height:100px;
+    background:green;    
+}
+.div6{
+	width:60%;
+	height:400px;
+	line-height:400px;
+	border:1px solid #000;
+	font-size:0px;
+	margin:0 auto;
+	text-align:center;
+	vertical-align:middle;
+}
+.div6 img{
+	border:1px solid red;
+	
+	vertical-align:middle;
+}
+
+.div7{
+	width:500px;
+	height:60px;
+	font-size:100px;
+	border:1px solid red;
+	
+}
+.div7 p,.div7 span{
+	font-size:.12rem;
+
+}
+.div7 a{
+	font-size:.12rem;
+	display:block;
+}

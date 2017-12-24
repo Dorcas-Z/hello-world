@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+    var arrAll=[];
+    var data1;
+    $(function(){
+        $.getJSON('http://127.0.0.1/4.php?searchText=999&callback=?',function(data){
+            data1=JSON.parse(data);           
+            for(var i=0;i<data1.length;i+=5){
+                var a=data1.slice(i,i+5);
+                arrAll.push(a);
+            }
+            $.each(arrAll,function(i){
+                var table=$('<table width="400" align="center" border="1" rules="all" height="200"><tr height="25"><th>名称</th><th>类型</th><th>薪水</th><th>免职</th><th>suce</th><th>数量</th><th>删除</th></tr></table>');
+                $('#box').append(table);
+                $.each(arrAll[i],function(j){
+                    var tr=$('<tr></tr>');
+                    table.append(tr);
+                    $.each(arrAll[i][j],function(q){
+                        var td=$('<td height="25">'+arrAll[i][j][q]+'</td>')
+                        tr.append(td);
+                    })
+                    var td=$('<td><button>删除</button></td>');
+                    tr.append(td)
+                })
+            })
+            $('table:eq(0)').show().siblings('table').hide();
+            var preBtn=$('<button>上一页</button>');
+            $('body').append(preBtn);
+            var nextBtn=$('<button>下一页</button>');
+            var span=$('<span id="num">1</span>/<span>'+arrAll.length+'</span>')
+            $('body').append(span);
+            $('body').append(nextBtn);
+            preBtn.click(pre);
+            nextBtn.click(next);
+            $('button:contains("删除")').click(del);
+        })
+    })
+    function del() {
+        var oldTab=$(this).parents('table');
+        var nextAllTab=$(this).parents('table').nextAll('table');
+        $(this).parents('tr').remove();
+        $.each(nextAllTab,function(){
+            var tr=$(this).find('tr').eq(1);
+            $(this).prev('table').append(tr);
+            if($('table').find('tr').length<2){
+                $(this).remove();
+            }
+        })
+        if(oldTab.find('tr').length<2){
+            oldTab.prev('table').show();
+            oldTab.remove();
+        }
+
+
+    }
+    function next(){
+        var n=$('table:visible').index('table');
+        n++;
+        if(n>($('table').length-1)){
+            return false;
+        }
+        $('table:visible').hide();
+        $('table').eq(n).show();
+        $('#num').html(n+1);
+    }
+    function pre(){
+        var n=$('table:visible').index('table');
+        n--;
+        if(n<0){
+            return false;
+        }
+        $('table:visible').hide();
+        $('table').eq(n).show();
+        $('#num').html(n+1);
+
+    }
+</script>
+</body>
+</html>

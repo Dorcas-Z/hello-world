@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script src="js/ajax.js"></script>
+<script>
+    window.onload=function(){
+        $.getDater('post','1.php',success);
+        function success(data){
+            document.body.innerHTML='<h1>'+data+'</h1>'
+        }
+    }
+</script>
+</body>
+</html>

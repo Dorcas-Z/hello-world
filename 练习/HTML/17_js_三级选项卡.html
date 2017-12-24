@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+            text-decoration:none;
+        }
+        #box li{
+            width:150px;
+            height:60px;
+            text-align:center;
+            line-height:60px;
+            background:darkgray;
+        }
+        #box li dl{
+            position:absolute;
+            width:150px;
+            text-align:center;
+            line-height:60px;
+            background:beige;
+        }
+        #box li dl dd div{
+            position:absolute;
+            width:300px;
+            height:300px;
+            left:150px;/*问题，没有top0px显示很奇怪*/
+            top:0px;
+            border:1px solid red;
+        }
+        .hide{
+            display:none;
+        }
+        .show{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+<ul id="box">
+    <li>
+        <a href="#">全部商品</a>
+        <dl class="hide">
+            <dd>
+                <a href="#">生鲜</a>
+                <div class="hide">
+                    我的果汁分你一半
+                </div>
+            </dd>
+            <dd>
+                <a href="#">生活用品</a>
+                <div class="hide">
+                    主打歌
+                </div>
+            </dd>
+            <dd>
+                <a href="#">服饰</a>
+                <div class="hide">
+                    世界第一名
+                </div>
+            </dd>
+            <dd>
+                <a href="#">礼物</a>
+                <div class="hide">
+                    你是我最重要的礼物
+                </div>
+            </dd>
+            <dd>
+                <a href="#">电子产品</a>
+                <div class="hide">
+                    电话手机
+                </div>
+            </dd>
+        </dl>
+    </li>
+</ul>
+<script>
+    var ul=document.getElementById('box');
+    var li=ul.getElementsByTagName('li')[0];
+    var dd=ul.getElementsByTagName('dd');
+
+    li.setAttribute('onmouseover','fn1(this,true)');
+    li.setAttribute('onmouseout','fn1(this,false)');
+    for(var i=0;i<dd.length;i++){
+        dd[i].setAttribute('onmouseover','fn1(this,true)');
+        dd[i].setAttribute('onmouseout','fn1(this,false)');
+    }
+    function fn1(li,aduge){
+        if(aduge){
+            li.children[1].setAttribute('class','show');
+        }else{
+            li.children[1].setAttribute('class','hide');
+        }
+    }
+
+</script>
+</body>
+</html>

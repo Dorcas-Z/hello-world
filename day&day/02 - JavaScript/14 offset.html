@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #demo{
+            width:300px;
+            height:300px;
+            border:1px solid red;
+        }
+        #father{
+            width:500px;
+            height:500px;
+            background-color: pink;
+            margin-left:20px;
+            position:relative;
+        }
+        #son{
+            width:200px;
+            height:200px;
+            background-color: #0a88e1;
+        }
+    </style>
+</head>
+<body>
+
+<div id="demo">
+    offsetWidth:包括padding,border,不包括margin, <br>
+    offsetHeight <br>
+
+</div>
+<div id="father">
+    <div id="son">
+        offsetLeft：距离上级盒子（带有定位）左边的位置 <br>
+        offsetTop: <br>
+    </div>
+</div>
+
+<script>
+    //review  字符串的方法
+//    var str='abcdedfejo';
+//    console.log(str.charAt(3));   //d
+//    console.log(str.charCodeAt(3));  //100
+//    console.log(str.indexOf('d'));  //3
+//    console.log(str.lastIndexOf('d'));  //5
+//    console.log(str.slice(3, 5));  //de
+//    console.log(str.substr(3, 5));   //dedfe
+    var demo=document.getElementById('demo');
+    console.log(demo.style.width);  //style.width  只能得到行内式
+    console.log(demo.offsetWidth);
+    console.log(demo.offsetHeight);
+
+    var son=document.getElementById('son');
+    console.log(son.offsetLeft);
+
+</script>
+</body>
+</html>

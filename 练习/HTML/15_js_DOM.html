@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二级选项卡 --当当网</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+            text-decoration:none;
+        }
+        a{
+            color:#000000;
+        }
+        #nav ul{
+            width:100%;
+            text-align: center;
+            display:flex;
+            justify-content:space-between;
+            font-size:20px;
+            font-weight: bold;
+        }
+        #nav ul li:not(.lox){
+            height:50px;
+            line-height:50px;
+        }
+        #nav ul li:first-child{
+            width:20%;
+           line-height: 50px;
+           background:red;
+            position:relative;
+        }
+        #nav ul .lox dl{
+            position:absolute;
+            width:100%;
+            text-align:center;
+            line-height: 50px;
+            background:darkred;
+            display:none;
+        }
+        #nav ul li:first-child a{
+            color:#ffffff;
+        }
+        #title{
+            width:80%;
+            height:300px;
+            position:absolute;
+            left:20%;
+            display:none;
+        }
+        #title div{
+            width:100%;
+            height:100%;
+            display:none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="nav">
+    <ul>
+        <li class="lox">
+            <a href="javascript:void (0)">全部商品分类</a>
+            <dl>
+                <dd><a href="javascript:void (0)">图书,童书</a></dd>
+                <dd><a href="javascript:void (0)">电子书,网络文学</a></dd>
+                <dd><a href="javascript:void (0)">创意文具，当当拍卖</a></dd>
+                <dd><a href="javascript:void (0)">图书,童书</a></dd>
+                <dd><a href="javascript:void (0)">电子书,网络文学</a></dd>
+                <dd><a href="javascript:void (0)">创意文具，当当拍卖</a></dd>
+            </dl>
+        </li>
+        <li><a href="javascript:void (0)">尾品汇</a></li>
+        <li><a href="javascript:void (0)">图书</a></li>
+        <li><a href="javascript:void (0)">电子书</a></li>
+        <li><a href="javascript:void (0)">网络文学</a></li>
+        <li><a href="javascript:void (0)">服装</a></li>
+        <li><a href="javascript:void (0)">运动户外</a></li>
+        <li><a href="javascript:void (0)">孕婴童</a></li>
+        <li><a href="javascript:void (0)">家居</a></li>
+        <li><a href="javascript:void (0)">创意文具</a></li>
+        <li><a href="javascript:void (0)">食品</a></li>
+        <li><a href="javascript:void (0)">海外购</a></li>
+        <li><a href="javascript:void (0)">电器城</a></li>
+    </ul>
+</div>
+<div id="title">
+    <div><h1>图书,童书</h1></div>
+    <div><h1>电子书,网络文学</h1></div>
+    <div><h1>创意文具，当当拍卖</h1></div>
+    <div><h1>图书,童书</h1><h1>图书,童书</h1></div>
+    <div><h1>电子书,网络文学</h1><h1>电子书,网络文学</h1></div>
+    <div><h1>创意文具，当当拍卖</h1><h1>创意文具，当当拍卖</h1></div>
+</div>
+<div>
+    <img src="../images/06.jpg" alt="" width="100%">
+</div>
+<script src="../js/15.js"></script>
+</body>
+</html>

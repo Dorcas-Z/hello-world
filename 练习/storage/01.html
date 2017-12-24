@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="localStorage.clear()">清空本地存储</button>
+<script>
+    var jsonObj;
+    if(localStorage.getItem('tab')){
+        jsonObj=JSON.parse(localStorage.getItem('tab'));
+        createTable(jsonObj);
+        alert('本地存储')
+    }else{
+        var script=document.createElement('script');
+        script.src='http://127.0.0.1/4.php?searchText=999&callback=fn1';
+        document.body.appendChild(script);
+        function fn1(data){
+            localStorage.setItem('tab',data);
+            jsonObj=JSON.parse(data);
+            createTable(jsonObj)
+            alert('ajax');
+        }
+    }
+
+    function createTable(data){
+        var table=document.createElement('table');
+        table.border=1;
+        table.width=600;
+        document.body.appendChild(table);
+        for(var i in data){
+            var tr=table.insertRow();
+            for(var j in data[i]){
+                var td=tr.insertCell();
+                td.innerHTML=data[i][j];
+            }
+        }
+    }
+</script>
+</body>
+</html>

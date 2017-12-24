@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+人员类别：<input type="text">
+<script src="03_ajax.js"></script>
+<script>
+    var inp=document.getElementsByTagName('input')[0];
+    inp.onchange=function(){
+        if(inp.value=='学生'){
+            getData('get','2.json',a);
+        }else if(inp.value=='老师'){
+            getData('get','1.json',a);
+        }
+    }
+    function a(data){
+        var arr=JSON.parse(data);
+        console.log(arr);
+        creatTab(arr);
+    }
+    function creatTab(arr){
+        var tab=document.createElement('table');
+        tab.border=1;
+        for(var i=0;i<arr.length;i++){
+            var tr=tab.insertRow();
+            for(var j in arr[i]){
+                var td=tr.insertCell();
+                td.innerHTML=arr[i][j];
+            }
+        }
+        document.body.appendChild(tab);
+    }
+
+
+</script>
+</body>
+</html>

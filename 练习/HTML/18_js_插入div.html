@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="creatDiv()">插入</button>
+<div clear="both"></div>
+<script>
+
+    function creatDiv(){
+        var div=document.createElement('div');
+        var script=document.getElementsByTagName('script')[0];
+        div.setAttribute('style','width:100px;height:100px;background:'+ranColor()+';float:left;margin-left:20px;margin-top:10px;box-shadow:2px 2px 2px '+ranColor()+';')
+        document.body.insertBefore(div,script);
+        div.onclick=removeDiv;
+    }
+
+    function ranColor(){
+        var a='0123456789abcdef';
+        var b='#';
+        for(var i=0;i<6;i++){
+            b+=a.charAt(parseInt(Math.random()*a.length));
+        }
+        return b;
+    }
+    function removeDiv(){
+        document.body.removeChild(this);
+    }
+</script>
+
+</body>
+</html>

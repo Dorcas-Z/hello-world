@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1></h1>
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $.ajax({
+        type:'get',
+        url:'1.php',
+        success:function(data){
+            $('h1').html(data);
+        }
+    })
+</script>
+</body>
+</html>

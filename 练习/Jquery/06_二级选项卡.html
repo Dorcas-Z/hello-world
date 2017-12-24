@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+            text-decoration: none;
+        }
+        ul{
+            width:100%;
+            height:30px;
+            line-height:30px;
+            text-align: center;
+            background:lemonchiffon;
+        }
+        ul li{
+            float:left;
+            width:33%;
+            border:2px solid #fff;
+        }
+        #section{
+            width:100%;
+            height:400px;
+            display:flex;
+            justify-content: space-around;
+            position:absolute;
+        }
+        #section div:nth-of-type(1){
+            width:30%;
+            height:350px;
+        }
+        #section div:nth-of-type(1) img{
+            float:left;
+            width:80%;
+            height:100px;
+            margin-top:10px;
+            border-radius: 20px;
+        }
+        #section div:nth-of-type(2){
+            width:60%;
+            height:350px;
+        }
+        #section div:nth-of-type(2) img{
+            position:absolute;
+            width:800px;
+            height:350px;
+            border-radius: 20px;
+        }
+        .hide{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>景点一</li>
+    <li>景点二</li>
+    <li>景点三</li>
+</ul>
+<div id="section">
+    <div>
+        <img src="../images/25.jpeg" alt="">
+        <img src="../images/26.jpeg" alt="">
+        <img src="../images/27.jpg" alt="">
+        <img src="../images/28.jpeg" alt="" class="hide">
+        <img src="../images/29.jpg" alt="" class="hide">
+        <img src="../images/30.jpg" alt="" class="hide">
+        <img src="../images/31.jpg" alt="" class="hide">
+        <img src="../images/32.jpg" alt="" class="hide">
+        <img src="../images/33.jpeg" alt="" class="hide">
+    </div>
+    <div>
+        <img src="../images/05.jpg" alt="">
+        <img src="../images/34.jpeg" alt="" class="hide">
+        <img src="../images/10.gif" alt="" class="hide">
+    </div>
+</div>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+    var b;
+    $('ul li').click(function(){
+        var n=$(this).index('li');
+       $('#section div:eq(0)').children('img').each(function(i,ele){
+           if(i==n*3||i==n*3+1||i==n*3+2){
+               $(ele).show();
+           }else{
+               $(ele).hide();
+           }
+       })
+        $('#section div:eq(1)').children('img').each(function(i,ele){
+            if(i==n){
+                $(ele).show();
+                b=$(ele);
+            }else{
+                $(ele).hide();
+            }
+        })
+    })
+    var img;
+    $('#section div:eq(0)').children('img').mouseover(function(){
+        img=$('<img src="">')
+        img.attr('src',$(this).attr('src'));
+        $('#section div:eq(1)').append(img);
+        img.show();
+    })
+    $('#section div:eq(0)').children('img').mouseout(function(){
+        img.remove();
+    })
+
+</script>
+</body>
+</html>

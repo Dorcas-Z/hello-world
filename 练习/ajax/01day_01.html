@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1></h1>
+<script>
+    function getXhr() {
+        var xhr;
+        if(window.XMLHttpRequest){
+            xhr=new XMLHttpRequest();
+        }else{
+            xhr=new ActiveXObject('Microsoft.XMLHttp');//IE
+        }
+        return xhr;
+    }
+    var xhr=getXhr();/*获取ajax核心对象*/
+    xhr.open('get','02.php',true);/*发送请求，true代表异步，false代表同步*/
+    xhr.send(null);
+    xhr.onreadystatechange=function(){/*当请求状态发生改变时*/
+        if(xhr.readyState==4&&xhr.status==200){/*判断请求状态*/
+            var txt=xhr.responseText;
+            document.body.firstElementChild.innerHTML=txt;
+        }
+    }
+</script>
+</body>
+</html>
