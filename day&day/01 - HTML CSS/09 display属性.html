@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+        }
+        div,span{
+            border:1px red solid;
+            width:500px;
+            height:100px;
+        }
+        .hide{
+            display:none;/*隐藏元素*/
+        }
+        .inline{
+            display:inline;
+            padding:10px 10px;
+        }
+        .block{
+            display:block;
+        }
+        .inlineBlock{
+            display:inline-block;
+            line-height:30px;
+        }
+        em{
+            border:1px dotted black;
+        }
+    </style>
+</head>
+<body>
+<div class="inline">这是个div块级元素</div><span>hahah</span>
+<span class="block">这是个span内联元素 <em class="inlineBlock">行内块元素</em></span>
+<span class="hide">这是第二个个span内联元素</span>
+<span class="inlineBlock">行内块元素</span>
+<span>最后一个span</span>
+</body>
+</html>

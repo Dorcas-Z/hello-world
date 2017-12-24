@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue221.js"></script>
+</head>
+<body>
+<template id="login">
+    <div>
+        <h2>登录页面</h2>
+
+    </div>
+
+</template>
+<template id="register">
+    <div>
+        <h2>注册页面</h2>
+        {{num}}
+        <button @click="sendata">子向父传参</button>
+    </div>
+
+</template>
+<div id="app">
+    <h1>APP PAGE</h1>
+    <a href="#" @click="show='log'">登录</a>
+    <a href="#" @click="show='reg'">注册</a>
+    <span>1</span>
+    <span  ref="getdata"></span>
+    <reg :num="id"  @out="getdata"></reg>
+    <component :is="show"></component>
+
+
+
+
+</div>
+
+<script>
+    Vue.component('log',{
+        template:'#login',
+
+    });
+    Vue.component('reg',{
+        template:'#register',
+        props:['num'],
+        methods:{
+            sendata:function(){
+                this.$emit('out',123);
+
+            }
+        }
+    });
+    new Vue({
+        el:'#app',
+        data:{
+            show:'log',
+            id:90
+        },
+        methods:{
+            getdata:function(input){
+               this.$refs.getdata.innerHTML=input;
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

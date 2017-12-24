@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function cat(){
+        this.name = 'peter';
+        return { name : 'dave'};
+    }
+    var cat = new cat();
+    console.log(cat.name);
+
+    function bat(){
+        this.name = 'peter';
+        this.age = 18;
+        return null;
+    }
+    var bat = new bat();
+    console.log(bat.name);
+    console.log(bat);
+  
+</script>
+</body>
+</html>

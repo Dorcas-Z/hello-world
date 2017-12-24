@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        em{
+            color:red;
+        }
+        i{
+            color:blue;
+        }
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <p><i>v-model:</i>username:<input type="text" v-model="user.name">password: <input type="password" v-model="user.pwd"><input type="submit" v-on:click="submit"></p>
+    <p><i>v-bind:</i><input type="text" v-bind:value="name"></p>
+    <p><i>name值:</i> {{name}} <em>备注：直接引用data里的属性不解析html标签</em> </p>
+    <!--差值表达式{{}}可以进行表达式运算-->
+    <p><i>差值表达式运算name等于我？：</i>{{name=='wo'?true:false}}</p>
+    <!--v-on绑定事件-->
+    <button v-on:click="change">改变name值</button>
+    <!-- v-text and v-html -->
+    <p><i>v-text:</i><span  v-text="name"> </span><em>备注：v-text不解析html标签</em></p>
+    <p><i>v-html:</i><span  v-html="name"> </span><em>备注：v-html解析html标签</em></p>
+    <p><i>v-cloak:</i><span  v-cloak>{{name}} </span></p>
+</div>
+
+<script src="js/vue1026.js"></script>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            name:'<h1>学习是开心的</h1>',
+            user:{name:'',pwd:''}
+        },
+        methods:{
+            change:function(){
+                this.name+='1';
+            },
+            submit:function(){
+                alert('username'+this.user.name+'password'+this.user.pwd)
+            }
+        }
+    })
+</script>
+</body>
+</html>

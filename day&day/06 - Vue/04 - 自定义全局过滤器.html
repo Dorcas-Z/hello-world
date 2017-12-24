@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局过滤器</title>
+    <script src="js/vue1026.js"></script>
+</head>
+<body>
+
+<div id="app1">
+    app1 time: {{time}} <br>
+    datefmt: {{time | datefmt}}
+</div>
+
+<div id="app2">
+    app2 time: {{time}} <br>
+    datefmt: {{time | datefmt}}
+</div>
+
+<script>
+    Vue.filter('datefmt',function(input){
+        var str='';
+        var year=input.getFullYear();
+        var month=input.getMonth()+1;
+        var date=input.getDate();
+        str=year+'-'+month+'-'+date;
+
+        return str;
+    })
+    var app1=new Vue({
+        el:'#app1',
+        data:{
+            time:new Date()
+        }
+    })
+    var app2=new Vue({
+        el:'#app2',
+        data:{
+            time:new Date()
+        }
+    })
+</script>
+
+
+</body>
+</html>

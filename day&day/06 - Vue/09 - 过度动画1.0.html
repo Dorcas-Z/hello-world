@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue1026.js"></script>
+    <style>
+        .show-transition{
+            transition:all 0.4s;
+            padding-left:20px;
+        }
+        .show-enter,.show-leave{
+            padding:90px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/animate.css">
+</head>
+<body>
+
+<div id="app">
+    <button @click="isShow=!isShow">显示隐藏切换</button>
+    <br>
+    <!--<span v-if="isShow" transition="show">hello vuejs!</span>-->
+
+    <div v-if="isShow" transition="fade" class="animated">hello hello</div>
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            isShow:false
+        },
+        transitions:{
+            fade:{
+                enterClass:'zoomIn',
+                leaveClass:'zoomOut'
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>

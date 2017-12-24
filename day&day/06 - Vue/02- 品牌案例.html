@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>品牌案例</title>
+    <style>
+        #table{
+            width:800px;
+            margin:20px auto;
+            border-collapse: collapse;
+        }
+        #table th{
+            background-color: #0a88e1;
+            color:#fff;
+            padding:5px;
+            text-align: center;
+            border:1px solid #000;
+        }
+        #table td{
+            padding:5px;
+            text-align: center;
+            border:1px solid #000;
+        }
+    </style>
+    <script src="js/vue1026.js"></script>
+</head>
+<body>
+
+
+<table id="table">
+    <tr>
+        <td colspan="4">
+            <input type="text" v-focus placeholder="请输入要筛选的值" v-model="sname" v-color="color"/>
+            <input type="text" v-model="id"/>
+            <input type="text" v-model="pname" @keydown.f2="addData()" placeholder="用了v-on按键修饰符.enter"/>  <!-- v-on按键修饰符-->
+            <button @click="addData()">添加数据</button>
+        </td>
+    </tr>
+
+    <tr>
+        <th>编号</th>
+        <th>品牌</th>
+        <th>创建时间</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td colspan="4" v-if="list.length==0">目前没有可显示的数据</td>
+    </tr>
+    <tr v-for="item in list | filterBy sname in 'name'" >
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.ctime|datefmt 'yyyy-mm-dd'}}</td>
+        <td>
+            <a href="javascript:void(0)" @click="delData(item.id)">删除</a>
+        </td>
+    </tr>
+</table>
+
+<script>
+    /*自定义指令*/
+    Vue.directive('focus',function(){
+        var inputObj=this.el;
+        inputObj.focus();
+    });
+    Vue.directive('color',function(){
+        this.el.style.color=this.vm[this.expression];
+    });
+    /*自定义添加按键修饰符*/
+    Vue.directive('on').keyCodes.f2=113;
+    console.log(Vue.directive('on').keyCodes);
+    /*全局过滤器*/
+    Vue.filter('datefmt',function(input,formatstring){
+        var str='';
+        var year=input.getFullYear();
+        var month=input.getMonth()+1;
+        var date=input.getDate();
+        if(formatstring=='yyyy-mm-dd'){
+            str=year+'-'+month+'-'+date;
+        }else{
+            str=year+'-'+month+'-'+date+' 03:12:12'
+        }
+        return str;
+    })
+    new Vue({
+        el:'#table',
+        data:{
+            color:'red',
+            list:[
+                {id:0,name:'宝马',ctime:new Date()}
+            ],
+            id:0,
+            pname:'',
+            sname:''  //自动同步筛选条件的值
+        },
+        methods:{
+            /*添加数据事件*/
+            addData:function(){
+                /*添加的新元素*/
+                var p={
+                    id:this.id,
+                    name:this.pname,
+                    ctime:new Date()
+                };
+                /*将元素加入到list数组*/
+                this.list.push(p);
+                this.id=0;
+                this.pname=''
+
+            },
+            /*删除数据事件*/
+            delData:function(id){
+                if(!confirm('是否要删除数据')){
+                    return;
+                }
+              /*找到要删除元素的索引值*/
+              var index=this.list.findIndex(function(item){ return item.id==id});
+                console.log(index);
+                /*数组的splice移除元素*/
+              this.list.splice(index,1);
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsonp请求</title>
+    <!--按照先后顺序导入vue.js和vue-resource.jss-->
+    <script src="js/vue1026.js"></script>
+    <script src="js/vue-resource134.js"></script>
+</head>
+<body>
+<div id="app">
+    {{obj |json}}
+    <button @click="jsonpdata()">ajax的get请求获取数据</button>
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            obj:null
+        },
+        methods:{
+            jsonpdata:function(){
+                /*请求url*/
+                var url='http://web.juhe.cn:8080/constellation/getAll';
+                /*利用vue-resource发出ajax get请求*/
+                this.$http.jsonp(url)//发出请求,这里存在一个跨域问题
+                    .then(function(response){
+                        this.obj=response.body;    //获取数据
+                    },function(response){
+                        this.obj='something error';
+                    })
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

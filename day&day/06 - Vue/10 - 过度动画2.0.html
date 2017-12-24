@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .show-enter-active,.show-leave-active{
+            transition:all 0.3s;
+            padding-left:20px;
+        }
+        .show-enter,.show-leave-active{
+            padding-left:80px;
+        }
+    </style>
+    <script src="js/vue221.js"></script>
+    <link rel="stylesheet" href="css/animate.css">
+
+</head>
+<body>
+
+<div id="app">
+    <button @click="isShow=!isShow">显示隐藏切换</button>
+    <br>
+    <transition name="show">
+        <span v-if="isShow">hello vuejs!</span>
+    </transition>
+    <transition enter-active-class="slideInUp"  leave-active-class="slideOutUp">
+        <div v-if="isShow" class="animated">hello world!</div>
+    </transition>
+
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            isShow:false
+        }
+    })
+
+</script>
+
+</body>
+</html>
